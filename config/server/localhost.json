@@ -1,0 +1,7 @@
+{
+  "address": "localhost",
+  "apps": [
+    {"id": "metrics", "type": "metrics_collector", "context": {}}
+  ],
+  "context": {}
+}

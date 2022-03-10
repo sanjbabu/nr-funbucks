@@ -1,0 +1,10 @@
+{
+  "context": {
+    "inputPath": "/apps_ux/logs/jenkins/metrics/deploy*"
+  },
+  "files": [
+    { "tmpl": "filter/filters.conf.njk", "type": "filter"},
+    { "tmpl": "input/inputs.conf.njk", "type": "input"},
+    { "tmpl": "parser/parsers.conf.njk", "type": "parser"}
+  ]
+}

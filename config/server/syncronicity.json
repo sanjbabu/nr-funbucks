@@ -1,0 +1,8 @@
+{
+  "address": "syncronicity.bcgov",
+  "apps": [
+    {"id": "jenkins-deploy", "type": "deploy", "context": {}},
+    {"id": "metrics", "type": "metrics_collector", "context": {}}
+  ],
+  "context": {}
+}

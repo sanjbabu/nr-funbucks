@@ -1,0 +1,8 @@
+{
+  "context": {
+  },
+  "files": [
+    { "tmpl": "filter/filters.conf.njk", "type": "filter"},
+    { "tmpl": "input/inputs.conf.njk", "type": "input"}
+  ]
+}

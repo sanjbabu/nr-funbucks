@@ -1,0 +1,34 @@
+{% macro renderTail(tag, path, parser = false) -%}
+[INPUT]
+    Name              tail
+    Tag               {{tag}}
+    Path              {{path}}
+    Path_Key          log_file_path
+    Offset_Key        event_sequence
+    DB                {{inputDbFile}}
+    Read_from_Head    True
+    Key               message
+    Mem_Buf_Limit     5MB
+    Ignore_Older      7d
+    Skip_Empty_Lines  On
+    Skip_Long_Lines   On{% if parser %}
+    Parser            {{parser}}
+{% endif %}
+{% endmacro %}
+
+{% macro renderMultilineTail(tag, path, parserName) %}
+[INPUT]
+    Name              tail
+    Tag               {{tag}}
+    Path              {{path}}
+    multiline.parser  {{parserName}}{% if shimDisableMultilineKey %}{% else %}
+    Path_Key          log_file_path
+    Offset_Key        event_sequence
+    Key               message{% endif %}
+    DB                {{inputDbFile}}
+    Read_from_Head    True
+    Mem_Buf_Limit     5MB
+    Ignore_Older      7d
+    Skip_Empty_Lines  On
+    Skip_Long_Lines   On
+{% endmacro %}

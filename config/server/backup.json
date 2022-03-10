@@ -1,0 +1,31 @@
+{
+  "address": "backup.dmz",
+  "https_proxy": "https://test-forwardproxy.nrs.bcgov:23128",
+  "apps": [
+    {
+      "id": "wfdlv-rp",
+      "type": "apache_reverse_proxy",
+      "context": {
+        "environment": "wfdlv",
+        "logs_path": "/sw_ux/httpd01/logs/hot/*-access*.log"
+      }
+    },
+    {
+      "id": "wfint-rp",
+      "type": "apache_reverse_proxy",
+      "context": {
+        "environment": "wfint",
+        "logs_path": "/sw_ux/httpd02/logs/hot/*-access*.log"
+      }
+    },
+    {
+      "id": "wftst-rp",
+      "type": "apache_reverse_proxy",
+      "context": {
+        "environment": "wftst",
+        "logs_path": "/sw_ux/httpd03/logs/hot/*-access*.log"
+      }
+    }
+  ],
+  "context": {}
+}

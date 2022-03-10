@@ -1,0 +1,24 @@
+{% if output_kinesis -%}
+[OUTPUT]
+    Name  kinesis_streams
+    Match *
+    region ca-central-1
+    stream ${AWS_KINESIS_STREAM}
+    role_arn ${AWS_KINESIS_ROLE_ARN}
+{% endif -%}
+{% if output_stdout %}
+[OUTPUT]
+    Name  stdout
+    Match *
+    Format json_lines
+{% endif -%}
+{% if output_local_lambda %}
+[OUTPUT]
+    Name http
+    Match *
+    Host 127.0.0.1
+    URI /?print=true
+    Port 3000
+    Format json
+    json_date_key false
+{% endif -%}

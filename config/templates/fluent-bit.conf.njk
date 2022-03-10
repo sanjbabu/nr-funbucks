@@ -1,0 +1,14 @@
+[SERVICE]
+    Log_Level       {{fluentLogLevel}}
+    Log_File        {{fluentLogFile}}
+    Parsers_File    parsers.conf
+
+{% for input in files_input -%}
+@INCLUDE {{input}}
+{% endfor %}
+{% for filter in files_filter -%}
+@INCLUDE {{filter}}
+{% endfor %}
+
+@INCLUDE filters.conf
+@INCLUDE outputs.conf

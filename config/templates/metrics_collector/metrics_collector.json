@@ -1,0 +1,10 @@
+{
+  "context": {
+  },
+  "files": [
+    { "tmpl": "filter/filters.conf.njk", "type": "filter"},
+    { "tmpl": "input/inputs.conf.njk", "type": "input"},
+    { "tmpl": "parser/parsers.conf.njk", "type": "parser"},
+    { "tmpl": "scripts/disk_free.sh.njk", "type": "script"}
+  ]
+}
