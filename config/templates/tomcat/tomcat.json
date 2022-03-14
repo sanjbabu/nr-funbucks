@@ -1,0 +1,13 @@
+{
+  "context": {
+    "!logs_path_localhost_access_log": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/localhost_access_log.*.log",
+    "!logs_path_localhost": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/localhost.*.log",
+    "!logs_path_catalina": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/catalina.*.log",
+    "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/{{ component | lower }}.log"
+  },
+  "files": [
+    { "tmpl": "filter/filters.conf.njk", "type": "filter"},
+    { "tmpl": "input/inputs.conf.njk", "type": "input"},
+    { "tmpl": "parser/parsers.conf.njk", "type": "parser"}
+  ]
+}

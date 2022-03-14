@@ -30,7 +30,7 @@ export default class Gen extends Command {
 
     for (const app of serverConfig.apps) {
       if (flags.app === undefined || flags.app === app.id) {
-        service.writeApp(app);
+        service.writeApp(app, serverConfig);
       }
     }
     service.writeBase();

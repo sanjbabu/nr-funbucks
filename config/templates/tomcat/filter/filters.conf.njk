@@ -1,0 +1,89 @@
+# Tomcat access
+#
+[FILTER]
+    Name modify
+    Match app.{{typeTag}}.access
+    Add event.kind event
+    Add event.category web
+    Add event.dataset tomcat.access
+    # Use the following line for loading to a test index
+    # Add @metadata.index nrm-logs-awtest-<!=labels.project=!>-access-<%=YYYY.MM=%>
+
+# Parser filter for tomcat multiline core parsing
+#
+[FILTER]
+    Name parser
+    Match app.{{typeTag}}.localhost
+    Key_Name message
+    Parser parser-filter-regex-tomcat-{{typeTag}}
+    Reserve_Data On
+    Preserve_Key On
+
+# Parser filter for tomcat multiline core parsing
+#
+[FILTER]
+    Name parser
+    Match app.{{typeTag}}.catalina
+    Key_Name message
+    Parser parser-filter-regex-tomcat-{{typeTag}}
+    Reserve_Data On
+    Preserve_Key On
+
+# Parser filter for generic multiline core parsing
+#
+[FILTER]
+    Name parser
+    Match app.{{typeTag}}.generic
+    Key_Name message
+    Parser parser-filter-regex-generic-{{typeTag}}
+    Reserve_Data On
+    Preserve_Key On
+
+# Tomcat localhost
+#
+[FILTER]
+    Name modify
+    Match app.{{typeTag}}.localhost
+    Add event.kind event
+    Add event.category web
+    Add event.dataset tomcat.localhost
+    Add log.file.path /unknown.log
+    Add event.sequence 0
+    # Use the following line for loading to a test index
+    # Add @metadata.index nrm-logs-awtest-<!=labels.project=!>-<%=YYYY.MM=%>
+
+# Tomcat catalina
+#
+[FILTER]
+    Name modify
+    Match app.{{typeTag}}.catalina
+    Add event.kind event
+    Add event.category web
+    Add event.dataset tomcat.catalina
+    Add log.file.path /unknown.log
+    Add event.sequence 0
+    # Use the following line for loading to a test index
+    # Add @metadata.index nrm-logs-awtest-<!=labels.project=!>-<%=YYYY.MM=%>
+
+# App logs (generic)
+#
+[FILTER]
+    Name modify
+    Match app.{{typeTag}}.generic
+    Add event.kind event
+    Add event.category web
+    Add event.dataset application.log
+    Add @metadata.timestampFormat YYYY-MM-DD-HH:mm:ss.SSS
+    Add log.file.path /unknown.log
+    Add event.sequence 0
+    # Use the following line for loading to a test index
+    # Add @metadata.index nrm-logs-awtest-<!=labels.project=!>-<%=YYYY.MM=%>
+
+# Application fields
+#
+[FILTER]
+    Name modify
+    Match app.{{typeTag}}*
+    Add labels.project {{ app | lower }}
+    Add service.name {{ component | lower }}
+    Add service.environment {{ environment }}

@@ -3,7 +3,7 @@ import * as path from 'path';
 import * as nunjucks from 'nunjucks';
 
 import {CONFIG_BASEPATH, OUTPUT_BASEPATH, TEMPLATE_CONFIG_BASEPATH} from '../constants/paths';
-import {BaseConfig, FbFile, ServerAppConfig, TypeConfig} from '../util/types';
+import {BaseConfig, FbFile, ServerAppConfig, ServerConfig, TypeConfig} from '../util/types';
 
 export class RenderService {
   /**
@@ -71,21 +71,21 @@ export class RenderService {
     }
   }
 
-  public writeApp(app: ServerAppConfig) {
+  public writeApp(app: ServerAppConfig, serverConfig: ServerConfig) {
     const typeConfigPath = path.resolve(TEMPLATE_CONFIG_BASEPATH, app.type, `${app.type}.json`);
     const typeConfigStr = fs.readFileSync(typeConfigPath, 'utf8');
     const type: TypeConfig = JSON.parse(typeConfigStr);
 
-    this.writeType(app, type);
+    this.writeType(app, type, serverConfig);
   }
 
   private writeType(
     app: ServerAppConfig,
-    type: TypeConfig) {
+    type: TypeConfig,
+    serverConfig: ServerConfig) {
     const context = {...type.context, ...app.context};
     this.typeCnt[app.type] = this.typeCnt[app.type] ? this.typeCnt[app.type] + 1 : 1;
     const typeTag = app.id ? app.id : `${app.type}_${this.typeCnt[app.type]}`;
-
     for (const file of type.files) {
       const outPath = this.writeRenderedTemplate(
         `${app.type}/${file.tmpl}`,
@@ -93,6 +93,7 @@ export class RenderService {
         {
           typeTag,
           ...this.baseConfig.context,
+          ...serverConfig.context,
           ...this.baseContextOverride,
           ...context,
         });
@@ -102,6 +103,16 @@ export class RenderService {
       }
       this.addFileToType(app, file, outPath);
     }
+  }
+
+  private execValueTemplate(context: {[key: string]: string}): object {
+    for (const key of Object.keys(context)) {
+      if (key && key.length > 1 && key.startsWith('!')) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+        context[key.slice(1)] = nunjucks.renderString(context[key], context);
+      }
+    }
+    return context;
   }
 
   private collateFileType(fileType: string): object {
@@ -118,7 +129,7 @@ export class RenderService {
   }
 
   private writeRenderedTemplate(templateName: string, outputPath: string, context: object): string {
-    const txt = nunjucks.render(templateName, context);
+    const txt = nunjucks.render(templateName, this.execValueTemplate(context as {[key: string]: string}));
     const outPath = path.resolve(OUTPUT_BASEPATH, outputPath);
     fs.mkdirSync(path.dirname(outPath), {recursive: true});
     fs.writeFileSync(outPath, txt);

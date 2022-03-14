@@ -1,3 +1,17 @@
 {
-
+  "address": "below.dmz",
+  "https_proxy": "https://test-forwardproxy.nrs.bcgov:23128",
+  "apps": [
+    {
+      "id": "wfim-wfim-dispatch-2k5-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfim",
+        "component": "wfim-dispatch-2k5-api"
+      }
+    }
+  ],
+  "context": {
+    "environment": "wfint"
+  }
 }
