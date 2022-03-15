@@ -2,7 +2,10 @@
   "address": "syncronicity.bcgov",
   "apps": [
     {"id": "jenkins-deploy", "type": "deploy", "context": {}},
-    {"id": "metrics", "type": "metrics_collector", "context": {}}
+    {"id": "cpu", "type": "metric_host_cpu", "context": {}},
+    {"id": "disk", "type": "metric_host_disk", "context": {}},
+    {"id": "memory", "type": "metric_host_memory", "context": {}},
+    {"id": "process", "type": "metric_host_process", "context": {}}
   ],
   "context": {}
 }
