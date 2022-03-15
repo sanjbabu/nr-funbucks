@@ -1,4 +1,5 @@
 {
+  "measurementType": "historic",
   "context": {
     "!logs_path_localhost_access_log": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/localhost_access_log.*.log",
     "!logs_path_localhost": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/localhost.*.log",

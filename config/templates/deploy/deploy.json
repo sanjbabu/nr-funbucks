@@ -1,4 +1,5 @@
 {
+  "measurementType": "historic",
   "context": {
     "inputPath": "/apps_ux/logs/jenkins/metrics/deploy*"
   },

@@ -9,7 +9,9 @@
     Rename event_sequence event.sequence
     Rename message event.original
 
-{{ lua.renderLua('^(?!metrics).*', 'timestamp.lua', 'append_event_created', true) }}
+{% for typeTag in measureTypes.historic -%}
+{{ lua.renderLua(typeTag, 'timestamp.lua', 'append_event_created') }}
+{% endfor %}
 
 # There is a bug when resolving environment variables with spaces in the value :(
 # So, we have to use Lua script for now

@@ -7,7 +7,8 @@ export interface FbFile {
 
 export interface TypeConfig {
   context: object;
-  files: FbFile[]
+  files: FbFile[];
+  measurementType: 'historic' | 'instant';
 }
 
 export interface ServerAppConfig {

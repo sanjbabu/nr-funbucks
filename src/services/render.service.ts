@@ -34,6 +34,17 @@ export class RenderService {
     [type: string]: string[]
   } = {};
 
+  /**
+   * Keeps track of types of each measurement.
+   */
+  private measureTypes: {
+    historic: string[];
+    instant: string[];
+  } = {
+    'historic': [],
+    'instant': [],
+  };
+
   public async init(local: boolean) {
     nunjucks.configure(TEMPLATE_CONFIG_BASEPATH, {
       autoescape: true,
@@ -65,6 +76,7 @@ export class RenderService {
       ...this.collateFileType('parser'),
       ...this.collateFileType('filter'),
       ...this.collateFileType('input'),
+      measureTypes: this.measureTypes,
     };
     for (const file of this.baseConfig.files) {
       this.writeRenderedTemplate(file.tmpl, this.fileToOutputPath(file), context);
@@ -86,6 +98,7 @@ export class RenderService {
     const context = {...type.context, ...app.context};
     this.typeCnt[app.type] = this.typeCnt[app.type] ? this.typeCnt[app.type] + 1 : 1;
     const typeTag = app.id ? app.id : `${app.type}_${this.typeCnt[app.type]}`;
+    this.measureTypes[type.measurementType].push(typeTag);
     for (const file of type.files) {
       const outPath = this.writeRenderedTemplate(
         `${app.type}/${file.tmpl}`,
