@@ -20,6 +20,7 @@ export default class Gen extends Command {
     context: Flags.string({
       char: 'c',
       multiple: true,
+      default: [],
       description: 'context override. Examples: appPathJq//tmp/jq, deploy_1:inputPath//tmp/file',
     }),
   }
