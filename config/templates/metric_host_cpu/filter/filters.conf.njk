@@ -1,0 +1,15 @@
+{% import "../../macros/lua.njk" as lua %}
+{{- lua.renderAppendTimestamp(typeTag) }}
+
+[FILTER]
+    Name modify
+    Match {{typeTag}}
+    Add event.kind metric
+    Add event.category host
+    Add event.dataset host.cpu
+    Rename cpu_p host.cpu.usage
+    Rename user_p host.cpu.user
+    Rename system_p host.cpu.system
+    Add @metadata.keyAsPath true
+
+{{ lua.renderLua(typeTag, typeTag + '/lua/cpu.lua', 'modify_cpu_stats') }}

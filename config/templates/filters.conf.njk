@@ -1,3 +1,4 @@
+{% import "macros/lua.njk" as lua %}
 [FILTER]
     Name modify
     Match *
@@ -8,22 +9,12 @@
     Rename event_sequence event.sequence
     Rename message event.original
 
-[FILTER]
-    Name lua
-    Match_Regex ^(?!metrics).*
-    script ${FLUENT_CONF_HOME}/filters.lua
-    time_as_table True
-    call append_event_created
+{{ lua.renderLua('^(?!metrics).*', 'timestamp.lua', 'append_event_created', true) }}
 
 # There is a bug when resolving environment variables with spaces in the value :(
 # So, we have to use Lua script for now
 # Reference: https://github.com/fluent/fluent-bit/issues/1225
-[FILTER]
-    Name lua
-    Match *
-    script ${FLUENT_CONF_HOME}/filters.lua
-    time_as_table True
-    call add_host_metadata
+{{ lua.renderLua('*', 'timestamp.lua', 'add_host_metadata') }}
 
 [FILTER]
     Name     nest

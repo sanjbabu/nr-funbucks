@@ -1,0 +1,12 @@
+{% macro renderLua(matchTag, scriptPath, call, regex = false) -%}
+[FILTER]
+    Name lua
+    Match{% if regex %}_Regex{% endif %} {{matchTag}}
+    script ${FLUENT_CONF_HOME}/{{scriptPath}}
+    time_as_table True
+    call {{call}}
+{%- endmacro %}
+
+{% macro renderAppendTimestamp(matchTag) -%}
+{{ renderLua(matchTag, 'timestamp.lua', 'append_timestamp') }}
+{%- endmacro %}

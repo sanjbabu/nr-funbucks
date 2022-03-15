@@ -129,14 +129,29 @@ export class RenderService {
   }
 
   private writeRenderedTemplate(templateName: string, outputPath: string, context: object): string {
-    const txt = nunjucks.render(templateName, this.execValueTemplate(context as {[key: string]: string}));
     const outPath = path.resolve(OUTPUT_BASEPATH, outputPath);
     fs.mkdirSync(path.dirname(outPath), {recursive: true});
-    fs.writeFileSync(outPath, txt);
+    if (this.isTemplateNjkFile(templateName)) {
+      const txt = nunjucks.render(templateName, this.execValueTemplate(context as {[key: string]: string}));
+      fs.writeFileSync(outPath, txt);
+    } else {
+      const txt = fs.readFileSync(path.resolve(TEMPLATE_CONFIG_BASEPATH, templateName));
+      fs.writeFileSync(outPath, txt);
+    }
     return outPath;
   }
 
   private fileToOutputPath(file: FbFile): string {
-    return file.name !== undefined ? file.name : file.tmpl.substring(0, file.tmpl.length - 4);
+    if (file.name !== undefined) {
+      return file.name;
+    } else if (this.isTemplateNjkFile(file.tmpl)) {
+      return file.tmpl.substring(0, file.tmpl.length - 4);
+    } else {
+      return file.tmpl;
+    }
+  }
+
+  private isTemplateNjkFile(path: string): boolean {
+    return path.endsWith('.njk');
   }
 }

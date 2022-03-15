@@ -1,7 +1,10 @@
 {
   "address": "localhost",
   "apps": [
-    {"id": "metrics", "type": "metrics_collector", "context": {}}
+    {"type": "metric_host_cpu", "context": {}},
+    {"type": "metric_host_disk", "context": {}},
+    {"type": "metric_host_memory", "context": {}},
+    {"type": "metric_process", "context": {}}
   ],
   "context": {}
 }

@@ -2,7 +2,7 @@
 export interface FbFile {
   name?: string;
   tmpl: string;
-  type: 'script' | 'filter' | 'parser';
+  type: 'script' | 'filter' | 'parser' | 'lua';
 }
 
 export interface TypeConfig {

@@ -16,10 +16,11 @@
     "inputDbFile": "/tmp/fluent-bit-logs.db"
   },
   "files": [
-    { "tmpl": "filters.conf.njk"},
-    { "tmpl": "filters.lua.njk"},
-    { "tmpl": "fluent-bit.conf.njk"},
-    { "tmpl": "outputs.conf.njk"},
-    { "tmpl": "parsers.conf.njk"}
+    { "tmpl": "filters.conf.njk" },
+    { "tmpl": "fluent-bit.conf.njk" },
+    { "tmpl": "host_metadata.lua" },
+    { "tmpl": "outputs.conf.njk" },
+    { "tmpl": "parsers.conf.njk" },
+    { "tmpl": "timestamp.lua" }
   ]
 }

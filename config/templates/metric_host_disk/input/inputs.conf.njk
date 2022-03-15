@@ -1,0 +1,6 @@
+[INPUT]
+    Name exec
+    Tag  {{typeTag}}
+    Command  ${FLUENT_CONF_HOME}/{{typeTag}}/scripts/disk_free.sh
+    Interval_Sec 60
+    Parser  {{typeTag}}.json

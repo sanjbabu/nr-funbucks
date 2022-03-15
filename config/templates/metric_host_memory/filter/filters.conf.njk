@@ -1,0 +1,18 @@
+{% import "../../macros/lua.njk" as lua %}
+{{- lua.renderAppendTimestamp(typeTag) }}
+
+[FILTER]
+    Name modify
+    Match {{typeTag}}
+    Add event.kind metric
+    Add event.category host
+    Add event.dataset host.memory
+    Rename Mem.total host.memory.total
+    Rename Mem.used host.memory.used
+    Rename Mem.free host.memory.free
+    Rename Swap.total host.swap.total
+    Rename Swap.used host.swap.used
+    Rename Swap.free host.swap.free
+    Add @metadata.keyAsPath true
+
+{{ lua.renderLua(typeTag, typeTag + '/lua/memory.lua', 'add_system_memory_percentage') }}
