@@ -1,7 +1,21 @@
-oclif-hello-world
+Funbucks
 =================
 
-oclif example Hello World CLI
+Funbucks is tool for generating Fluent Bit configurations that is powered using oclif.
+
+It is not recommended that the tool be installed at this time.
+
+Example 1: Generate for a server
+
+```
+$ ./bin/dev gen -l -s localhost -c deploy_1:inputPath//metrics/\* -c output_kinesis/true -c output_local_lambda/
+```
+
+Example 2: Generate for a server (local testing and override some context variables)
+
+```
+$ ./bin/dev gen -l -s localhost -c deploy_1:inputPath//metrics/\* -c output_kinesis/true -c output_local_lambda/
+```
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world)
@@ -44,10 +58,13 @@ generate fluentbit configuration
 
 ```
 USAGE
-  $ nr-funbucks gen [-n <value>]
+  $ nr-funbucks gen -s <value> [-l] [-a <value>] [-c <value>]
 
 FLAGS
-  -n, --name=<value>  name to print
+  -a, --app=<value>         app to limit rendering to
+  -c, --context=<value>...  context override. Examples: appPathJq//tmp/jq, deploy_1:inputPath//tmp/file
+  -l, --local               render for local lambda usage
+  -s, --server=<value>      (required) server to render the config for
 
 DESCRIPTION
   generate fluentbit configuration
@@ -96,7 +113,7 @@ EXAMPLES
   $ nr-funbucks plugins
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.0.11/src/commands/plugins/index.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.1.0/src/commands/plugins/index.ts)_
 
 ## `nr-funbucks plugins:inspect PLUGIN...`
 
@@ -151,7 +168,7 @@ ALIASES
   $ nr-funbucks plugins add
 
 EXAMPLES
-  $ nr-funbucks plugins:install myplugin 
+  $ nr-funbucks plugins:install myplugin
 
   $ nr-funbucks plugins:install https://github.com/someuser/someplugin
 
