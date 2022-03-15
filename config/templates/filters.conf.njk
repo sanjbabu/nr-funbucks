@@ -16,7 +16,7 @@
 # There is a bug when resolving environment variables with spaces in the value :(
 # So, we have to use Lua script for now
 # Reference: https://github.com/fluent/fluent-bit/issues/1225
-{{ lua.renderLua('*', 'timestamp.lua', 'add_host_metadata') }}
+{{ lua.renderLua('*', 'host_metadata.lua', 'add_host_metadata') }}
 
 [FILTER]
     Name     nest

@@ -17,6 +17,11 @@ export default class Gen extends Command {
     server: Flags.string({char: 's', required: true, description: 'server to render the config for'}),
     local: Flags.boolean({char: 'l', description: 'render for local lambda usage'}),
     app: Flags.string({char: 'a', description: 'app to limit rendering to'}),
+    context: Flags.string({
+      char: 'c',
+      multiple: true,
+      description: 'context override. Examples: appPathJq//tmp/jq, deploy_1:inputPath//tmp/file',
+    }),
   }
 
   public async run(): Promise<void> {
@@ -30,9 +35,9 @@ export default class Gen extends Command {
 
     for (const app of serverConfig.apps) {
       if (flags.app === undefined || flags.app === app.id) {
-        service.writeApp(app, serverConfig);
+        service.writeApp(app, serverConfig, flags.context);
       }
     }
-    service.writeBase();
+    service.writeBase(flags.context);
   }
 }

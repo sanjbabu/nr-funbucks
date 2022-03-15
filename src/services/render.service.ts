@@ -69,32 +69,35 @@ export class RenderService {
     return Promise.resolve();
   }
 
-  public writeBase() {
+  public writeBase(override: string[]) {
     const context = {
       ...this.baseConfig.context,
       ...this.baseContextOverride,
+      ...this.overrideContext(override, undefined),
       ...this.collateFileType('parser'),
       ...this.collateFileType('filter'),
       ...this.collateFileType('input'),
       measureTypes: this.measureTypes,
     };
+
     for (const file of this.baseConfig.files) {
       this.writeRenderedTemplate(file.tmpl, this.fileToOutputPath(file), context);
     }
   }
 
-  public writeApp(app: ServerAppConfig, serverConfig: ServerConfig) {
+  public writeApp(app: ServerAppConfig, serverConfig: ServerConfig, override: string[]) {
     const typeConfigPath = path.resolve(TEMPLATE_CONFIG_BASEPATH, app.type, `${app.type}.json`);
     const typeConfigStr = fs.readFileSync(typeConfigPath, 'utf8');
     const type: TypeConfig = JSON.parse(typeConfigStr);
 
-    this.writeType(app, type, serverConfig);
+    this.writeType(app, type, serverConfig, override);
   }
 
   private writeType(
     app: ServerAppConfig,
     type: TypeConfig,
-    serverConfig: ServerConfig) {
+    serverConfig: ServerConfig,
+    override: string[]) {
     const context = {...type.context, ...app.context};
     this.typeCnt[app.type] = this.typeCnt[app.type] ? this.typeCnt[app.type] + 1 : 1;
     const typeTag = app.id ? app.id : `${app.type}_${this.typeCnt[app.type]}`;
@@ -106,9 +109,10 @@ export class RenderService {
         {
           typeTag,
           ...this.baseConfig.context,
-          ...serverConfig.context,
           ...this.baseContextOverride,
+          ...serverConfig.context,
           ...context,
+          ...this.overrideContext(override, typeTag),
         });
 
       if (file.type === 'script') {
@@ -126,6 +130,29 @@ export class RenderService {
       }
     }
     return context;
+  }
+
+  private overrideContext(override: string[], typeTag?: string) {
+    return {
+      ...override.filter((s) => s.indexOf('/') !== -1).reduce((acc, cv) => {
+        const slashIndex = cv.indexOf('/');
+        const typeKey = cv.substring(0, slashIndex);
+        const val = cv.substring(slashIndex + 1);
+
+        if (typeKey.indexOf(':') === -1) {
+          acc[typeKey] = val;
+          return acc;
+        }
+
+        const colonIndex = typeKey.indexOf(':');
+        const type = typeKey.substring(0, colonIndex);
+        const key = typeKey.substring(colonIndex + 1);
+        if (type === typeTag) {
+          acc[key] = val;
+        }
+        return acc;
+      }, {} as {[type: string]: string}),
+    };
   }
 
   private collateFileType(fileType: string): object {
