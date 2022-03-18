@@ -4,7 +4,17 @@
     {"id": "cpu", "type": "metric_host_cpu", "context": {}},
     {"id": "disk", "type": "metric_host_disk", "context": {}},
     {"id": "memory", "type": "metric_host_memory", "context": {}},
-    {"id": "process", "type": "metric_process", "context": {}}
+    {"id": "process", "type": "metric_process", "context": {}},
+    {
+      "id": "irs-war",
+      "type": "tomcat",
+      "context": {
+        "app": "irs",
+        "component": "irs-war"
+      }
+    }
   ],
-  "context": {}
+  "context": {
+    "environment": "delivery"
+  }
 }
