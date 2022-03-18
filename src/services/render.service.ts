@@ -3,8 +3,12 @@ import * as path from 'path';
 import * as nunjucks from 'nunjucks';
 
 import {CONFIG_BASEPATH, OUTPUT_BASEPATH, TEMPLATE_CONFIG_BASEPATH} from '../constants/paths';
-import {BaseConfig, FbFile, ServerAppConfig, ServerConfig, TypeConfig} from '../util/types';
+// eslint-disable-next-line max-len
+import {BaseConfig, FbFile, FB_FILE_TYPES, MEASURE_TYPES, ServerAppConfig, ServerConfig, TypeConfig} from '../util/types';
 
+/**
+ * The render service handles most tasks around templating and writing the fluent bit configuration.
+ */
 export class RenderService {
   /**
    * Base config
@@ -38,14 +42,18 @@ export class RenderService {
    * Keeps track of types of each measurement.
    */
   private measureTypes: {
-    historic: string[];
-    instant: string[];
+    [Property in keyof MEASURE_TYPES]: string[];
   } = {
-    'historic': [],
-    'instant': [],
+    historic: [],
+    instant: [],
   };
 
-  public async init(local: boolean) {
+  /**
+   * Initializes the output directory and reads base config.
+   * @param local If true, the local context override in the base config is used.
+   * @returns Promise resolved when initialization is complete
+   */
+  public async init(local: boolean): Promise<void[]> {
     nunjucks.configure(TEMPLATE_CONFIG_BASEPATH, {
       autoescape: true,
     });
@@ -54,12 +62,21 @@ export class RenderService {
       this.readBaseConfig(local)]);
   }
 
+  /**
+   * Cleans output path
+   * @returns Promise resolved when everything cleaned
+   */
   public clean(): Promise<void> {
     fs.rmSync(OUTPUT_BASEPATH, {recursive: true, force: true});
     fs.mkdirSync(OUTPUT_BASEPATH);
     return Promise.resolve();
   }
 
+  /**
+   * Reads the base config
+   * @param local If true, the local context override in the base config is used.
+   * @returns Promise resolved when base config read.
+   */
   public readBaseConfig(local: boolean): Promise<void> {
     const baseConfigStr = fs.readFileSync(path.resolve(CONFIG_BASEPATH, `base.json`), 'utf8');
     this.baseConfig = JSON.parse(baseConfigStr);
@@ -69,6 +86,10 @@ export class RenderService {
     return Promise.resolve();
   }
 
+  /**
+   * Write base config. This should be done last.
+   * @param override Array of override values
+   */
   public writeBase(override: string[]) {
     const context = {
       ...this.baseConfig.context,
@@ -93,6 +114,13 @@ export class RenderService {
     this.writeType(app, type, serverConfig, override);
   }
 
+  /**
+   * Write app out from type template on server
+   * @param app The application to write the configuration for
+   * @param type The type to use to template the application
+   * @param serverConfig The server the app resides on
+   * @param override Array of override values
+   */
   private writeType(
     app: ServerAppConfig,
     type: TypeConfig,
@@ -122,6 +150,11 @@ export class RenderService {
     }
   }
 
+  /**
+   * Renders any values using nunjucks if the key starts with '!'
+   * @param context The context to render
+   * @returns The modified context
+   */
   private execValueTemplate(context: {[key: string]: string}): object {
     for (const key of Object.keys(context)) {
       if (key && key.length > 1 && key.startsWith('!')) {
@@ -132,7 +165,14 @@ export class RenderService {
     return context;
   }
 
-  private overrideContext(override: string[], typeTag?: string) {
+  /**
+   * Renders override values into a context object. Key is seperated from value with a '/'.
+   * If there is a ':' in the key it is interpreted as an override for a specific application.
+   * @param override Array of override values
+   * @param typeTag Optional type tag for overriding specific application context values
+   * @returns
+   */
+  private overrideContext(override: string[], typeTag?: string): object {
     return {
       ...override.filter((s) => s.indexOf('/') !== -1).reduce((acc, cv) => {
         const slashIndex = cv.indexOf('/');
@@ -155,19 +195,34 @@ export class RenderService {
     };
   }
 
-  private collateFileType(fileType: string): object {
+  /**
+   * Gathers all files of fileType into a context object
+   * @param fileType The file type to collect
+   * @returns Context object
+   */
+  private collateFileType(fileType: FB_FILE_TYPES): object {
     return {
       [`files_${fileType}`]: this.typeFiles[fileType] ? this.typeFiles[fileType] : [],
     };
   }
 
-  private addFileToType(app: ServerAppConfig, file: FbFile, outPath: string) {
+  /**
+   * Add file to type library for later collation for templating.
+   */
+  private addFileToType(app: ServerAppConfig, file: FbFile, outPath: string): void {
     if (!this.typeFiles[file.type]) {
       this.typeFiles[file.type] = [];
     }
     this.typeFiles[file.type].push(outPath.slice(OUTPUT_BASEPATH.length + 1));
   }
 
+  /**
+   * Renders a template out using Nunjucks.
+   * @param templateName The path to the template to render
+   * @param outputPath The output path
+   * @param context The context to render the template using
+   * @returns The output path
+   */
   private writeRenderedTemplate(templateName: string, outputPath: string, context: object): string {
     const outPath = path.resolve(OUTPUT_BASEPATH, outputPath);
     fs.mkdirSync(path.dirname(outPath), {recursive: true});
@@ -181,6 +236,11 @@ export class RenderService {
     return outPath;
   }
 
+  /**
+   * Resolves a file to its output path.
+   * @param file The file to resolve the output path for
+   * @returns The output path
+   */
   private fileToOutputPath(file: FbFile): string {
     if (file.name !== undefined) {
       return file.name;
@@ -191,6 +251,11 @@ export class RenderService {
     }
   }
 
+  /**
+   * Checks if the path is a nunjucks template.
+   * @param path The path to check
+   * @returns True if the path ends in .njk and false otherwise
+   */
   private isTemplateNjkFile(path: string): boolean {
     return path.endsWith('.njk');
   }

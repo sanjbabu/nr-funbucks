@@ -1,11 +1,13 @@
 import {Command, Flags} from '@oclif/core';
-
 import * as fs from 'fs';
 import * as path from 'path';
 import {RenderService} from '../services/render.service';
 import {ServerConfig} from '../util/types';
 import {SERVER_CONFIG_BASEPATH} from '../constants/paths';
 
+/**
+ * Generate command for funbucks
+ */
 export default class Gen extends Command {
   static description = 'generate fluentbit configuration'
 
@@ -25,6 +27,9 @@ export default class Gen extends Command {
     }),
   }
 
+  /**
+   * Generate command
+   */
   public async run(): Promise<void> {
     const {flags} = await this.parse(Gen);
     const service = new RenderService();
@@ -36,9 +41,11 @@ export default class Gen extends Command {
 
     for (const app of serverConfig.apps) {
       if (flags.app === undefined || flags.app === app.id) {
+        // Write app config
         service.writeApp(app, serverConfig, flags.context);
       }
     }
+    // Write base config (should occur last)
     service.writeBase(flags.context);
   }
 }

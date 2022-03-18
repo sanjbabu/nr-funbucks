@@ -1,14 +1,20 @@
+export type FB_FILE_TYPES = 'input' | 'script' | 'filter' | 'parser' | 'lua';
 
 export interface FbFile {
   name?: string;
   tmpl: string;
-  type: 'script' | 'filter' | 'parser' | 'lua';
+  type: FB_FILE_TYPES;
+}
+
+export type MEASURE_TYPES = {
+  historic: string;
+  instant: string;
 }
 
 export interface TypeConfig {
   context: object;
   files: FbFile[];
-  measurementType: 'historic' | 'instant';
+  measurementType: keyof MEASURE_TYPES;
 }
 
 export interface ServerAppConfig {
