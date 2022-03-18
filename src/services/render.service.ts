@@ -202,6 +202,7 @@ export class RenderService {
    */
   private collateFileType(fileType: FB_FILE_TYPES): object {
     return {
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       [`files_${fileType}`]: this.typeFiles[fileType] ? this.typeFiles[fileType] : [],
     };
   }
