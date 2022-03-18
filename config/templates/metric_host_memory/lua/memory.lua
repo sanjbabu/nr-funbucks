@@ -1,3 +1,6 @@
+function isempty(s)
+  return s == nil or s == ''
+end
 
 function add_system_memory_percentage(tag, timestamp, record)
   new_record = record

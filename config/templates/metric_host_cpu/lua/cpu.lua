@@ -96,6 +96,10 @@ function copy(obj)
   return res
 end
 
+function isempty(s)
+  return s == nil or s == ''
+end
+
 function modify_cpu_stats(tag, timestamp, record)
   new_record = record
   core = 0
