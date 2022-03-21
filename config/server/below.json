@@ -9,6 +9,14 @@
         "app": "wfim",
         "component": "wfim-dispatch-2k5-api"
       }
+    },
+    {
+      "id": "wfdm-document-management-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfdm",
+        "component": "wfdm-document-management-api"
+      }
     }
   ],
   "context": {
