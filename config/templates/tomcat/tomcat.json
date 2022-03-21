@@ -1,10 +1,10 @@
 {
   "measurementType": "historic",
   "context": {
-    "!logs_path_localhost_access_log": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/localhost_access_log.*.log",
-    "!logs_path_localhost": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/localhost.*.log",
-    "!logs_path_catalina": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/catalina.*.log",
-    "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/{{ component | lower }}.log"
+    "!logs_path_localhost_access_log": "{{ localLogsPathPrefix | default('/apps_ux/logs') }}/{{ app | upper }}/{{ component | lower }}/localhost_access_log.*.log",
+    "!logs_path_localhost": "{{ localLogsPathPrefix | default('/apps_ux/logs') }}/{{ app | upper }}/{{ component | lower }}/localhost.*.log",
+    "!logs_path_catalina": "{{ localLogsPathPrefix | default('/apps_ux/logs') }}/{{ app | upper }}/{{ component | lower }}/catalina.*.log",
+    "!logs_path_app": "{{ localLogsPathPrefix | default('/apps_ux/logs') }}/{{ app | upper }}/{{ component | lower }}/{{ component | lower }}.log"
   },
   "files": [
     { "tmpl": "filter/filters.conf.njk", "type": "filter"},

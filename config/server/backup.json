@@ -7,7 +7,7 @@
       "type": "apache_reverse_proxy",
       "context": {
         "environment": "wfdlv",
-        "logs_path": "/sw_ux/httpd01/logs/hot/*-access*.log"
+        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/wfdlv{% else %}/sw_ux/httpd01/logs/hot{% endif %}/*-access*.log"
       }
     },
     {
@@ -15,7 +15,7 @@
       "type": "apache_reverse_proxy",
       "context": {
         "environment": "wfint",
-        "logs_path": "/sw_ux/httpd02/logs/hot/*-access*.log"
+        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/wfint{% else %}/sw_ux/httpd02/logs/hot{% endif %}/*-access*.log"
       }
     },
     {
@@ -23,7 +23,7 @@
       "type": "apache_reverse_proxy",
       "context": {
         "environment": "wftst",
-        "logs_path": "/sw_ux/httpd03/logs/hot/*-access*.log"
+        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/wftst{% else %}/sw_ux/httpd03/logs/hot{% endif %}/*-access*.log"
       }
     }
   ],
