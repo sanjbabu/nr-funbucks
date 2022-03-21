@@ -1,19 +1,21 @@
 {
   "context": {
+    "appPathJq": "/sw_ux/bin/jq",
     "fluentLogLevel": "error",
     "fluentLogFile": "/apps_ux/agents/main/logs/agent.log",
     "inputDbFile": "/apps_ux/agents/main/db/fluent-bit-logs.db",
+    "inputTailMemBufLimit": "5MB",
+    "inputTailIgnoreOlder": "7d",
     "output_kinesis": true,
     "output_stdout": true,
-    "shimDisableMultilineKey": true,
-    "appPathJq": "/sw_ux/bin/jq"
+    "shimDisableMultilineKey": true
   },
   "localContextOverride": {
-    "output_kinesis": false,
-    "output_local_lambda": true,
     "appPathJq": "jq",
     "fluentLogFile": "/tmp/agent.log",
-    "inputDbFile": "/tmp/fluent-bit-logs.db"
+    "inputDbFile": "/tmp/fluent-bit-logs.db",
+    "output_kinesis": false,
+    "output_local_lambda": true
   },
   "files": [
     { "tmpl": "filters.conf.njk" },

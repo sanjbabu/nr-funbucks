@@ -3,6 +3,62 @@
   "https_proxy": "https://test-forwardproxy.nrs.bcgov:23128",
   "apps": [
     {
+      "id": "dispatch-dispatch-api-war",
+      "type": "tomcat",
+      "context": {
+        "app": "dispatch",
+        "component": "dispatch-api-war"
+      }
+    },
+    {
+      "id": "dispatch-dispatch-client-war",
+      "type": "tomcat",
+      "context": {
+        "app": "dispatch",
+        "component": "dispatch-client-war"
+      }
+    },
+    {
+      "id": "dispatch-dispatch-middleware-war",
+      "type": "tomcat",
+      "context": {
+        "app": "dispatch",
+        "component": "dispatch-middleware-war"
+      }
+    },
+    {
+      "id": "dispatch-dispatch-middleware-war",
+      "type": "tomcat",
+      "context": {
+        "app": "dispatch",
+        "component": "dispatch-middleware-war"
+      }
+    },
+    {
+      "id": "dispatch-dispatch-webapps-war",
+      "type": "tomcat",
+      "context": {
+        "app": "dispatch",
+        "component": "dispatch-webapps-war"
+      }
+    },
+    {
+      "id": "dispatch-dispatch-wfim-incident-sync-api",
+      "type": "tomcat",
+      "context": {
+        "app": "dispatch",
+        "component": "dispatch-wfim-incident-sync-api"
+      }
+    },
+    {
+      "id": "dispatch-dispatch-wfim-rof-sync-api",
+      "type": "tomcat",
+      "context": {
+        "app": "dispatch",
+        "component": "dispatch-wfim-rof-sync-api"
+      }
+    },
+    {
       "id": "wfim-wfim-dispatch-2k5-api",
       "type": "tomcat",
       "context": {

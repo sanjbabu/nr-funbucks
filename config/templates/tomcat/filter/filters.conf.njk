@@ -5,9 +5,8 @@
     Match app.{{typeTag}}.access
     Add event.kind event
     Add event.category web
-    Add event.dataset tomcat.access
-    # Use the following line for loading to a test index
-    # Add @metadata.index nrm-logs-awtest-<!=labels.project=!>-access-<%=YYYY.MM=%>
+    Add event.dataset tomcat.access{% if tmplTomcatTestAccessIndex %}
+    @metadata.index {{ tmplTomcatTestAccessIndex }}{% endif %}
 
 # Parser filter for tomcat multiline core parsing
 #
@@ -46,11 +45,10 @@
     Match app.{{typeTag}}.localhost
     Add event.kind event
     Add event.category web
-    Add event.dataset tomcat.localhost
+    Add event.dataset tomcat.localhost{% if shimDisableMultilineKey %}
     Add log.file.path /unknown.log
-    Add event.sequence 0
-    # Use the following line for loading to a test index
-    # Add @metadata.index nrm-logs-awtest-<!=labels.project=!>-<%=YYYY.MM=%>
+    Add event.sequence 0{% endif %}{% if tmplTomcatTestLocalhostIndex %}
+    @metadata.index {{ tmplTomcatTestLocalhostIndex }}{% endif %}
 
 # Tomcat catalina
 #
@@ -59,11 +57,10 @@
     Match app.{{typeTag}}.catalina
     Add event.kind event
     Add event.category web
-    Add event.dataset tomcat.catalina
+    Add event.dataset tomcat.catalina{% if shimDisableMultilineKey %}
     Add log.file.path /unknown.log
-    Add event.sequence 0
-    # Use the following line for loading to a test index
-    # Add @metadata.index nrm-logs-awtest-<!=labels.project=!>-<%=YYYY.MM=%>
+    Add event.sequence 0{% endif %}{% if tmplTomcatTestCatalinaIndex %}
+    @metadata.index {{ tmplTomcatTestCatalinaIndex }}{% endif %}
 
 # App logs (generic)
 #
@@ -73,11 +70,10 @@
     Add event.kind event
     Add event.category web
     Add event.dataset application.log
-    Add @metadata.timestampFormat YYYY-MM-DD-HH:mm:ss.SSS
+    Add @metadata.timestampFormat YYYY-MM-DD-HH:mm:ss.SSS{% if shimDisableMultilineKey %}
     Add log.file.path /unknown.log
-    Add event.sequence 0
-    # Use the following line for loading to a test index
-    # Add @metadata.index nrm-logs-awtest-<!=labels.project=!>-<%=YYYY.MM=%>
+    Add event.sequence 0{% endif %}{% if tmplTomcatTestApplicationIndex %}
+    @metadata.index {{ tmplTomcatTestApplicationIndex }}{% endif %}
 
 # Application fields
 #

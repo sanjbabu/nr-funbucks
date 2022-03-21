@@ -1,4 +1,4 @@
-{% import "../../macros/input.njk" as input  with context %}
+{% import "../../macros/input.njk" as input with context %}
 {{- input.renderTail('app.' + typeTag + '.access', logs_path_localhost_access_log) }}
 
 {{- input.renderMultilineTail('app.' + typeTag + '.localhost', logs_path_localhost, 'multiline-core-tomcat-regex-' + typeTag) }}
