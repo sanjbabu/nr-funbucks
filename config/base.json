@@ -13,6 +13,7 @@
   "localContextOverride": {
     "appPathJq": "jq",
     "fluentLogFile": "/tmp/agent.log",
+    "localLogsPathPrefix": "/data",
     "inputDbFile": "/tmp/fluent-bit-logs.db",
     "output_kinesis": false,
     "output_local_lambda": true

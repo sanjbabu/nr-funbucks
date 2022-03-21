@@ -1,7 +1,7 @@
 {
   "measurementType": "historic",
   "context": {
-    "inputPath": "/apps_ux/logs/jenkins/metrics/deploy*"
+    "!inputPath": "{{ localLogsPathPrefix | default('/apps_ux/logs/jenkins/metrics') }}/deploy*"
   },
   "files": [
     { "tmpl": "filter/filters.conf.njk", "type": "filter"},
