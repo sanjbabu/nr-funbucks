@@ -3,7 +3,7 @@
   "https_proxy": "https://test-forwardproxy.nrs.bcgov:23128",
   "apps": [
     {
-      "id": "dispatch-dispatch-api-war",
+      "id": "dispatch-api-war",
       "type": "tomcat",
       "context": {
         "app": "dispatch",
@@ -11,7 +11,7 @@
       }
     },
     {
-      "id": "dispatch-dispatch-client-war",
+      "id": "dispatch-client-war",
       "type": "tomcat",
       "context": {
         "app": "dispatch",
@@ -19,7 +19,7 @@
       }
     },
     {
-      "id": "dispatch-dispatch-middleware-war",
+      "id": "dispatch-middleware-war",
       "type": "tomcat",
       "context": {
         "app": "dispatch",
@@ -27,15 +27,7 @@
       }
     },
     {
-      "id": "dispatch-dispatch-middleware-war",
-      "type": "tomcat",
-      "context": {
-        "app": "dispatch",
-        "component": "dispatch-middleware-war"
-      }
-    },
-    {
-      "id": "dispatch-dispatch-webapps-war",
+      "id": "dispatch-webapps-war",
       "type": "tomcat",
       "context": {
         "app": "dispatch",
@@ -43,7 +35,7 @@
       }
     },
     {
-      "id": "dispatch-dispatch-wfim-incident-sync-api",
+      "id": "dispatch-wfim-incident-sync-api",
       "type": "tomcat",
       "context": {
         "app": "dispatch",
@@ -51,7 +43,7 @@
       }
     },
     {
-      "id": "dispatch-dispatch-wfim-rof-sync-api",
+      "id": "dispatch-wfim-rof-sync-api",
       "type": "tomcat",
       "context": {
         "app": "dispatch",
@@ -59,11 +51,19 @@
       }
     },
     {
-      "id": "wfim-wfim-dispatch-2k5-api",
+      "id": "rrt-war",
       "type": "tomcat",
       "context": {
-        "app": "wfim",
-        "component": "wfim-dispatch-2k5-api"
+        "app": "rrt",
+        "component": "rrt-war"
+      }
+    },
+    {
+      "id": "wfcst-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfcst",
+        "component": "wfcst-war"
       }
     },
     {
@@ -72,6 +72,422 @@
       "context": {
         "app": "wfdm",
         "component": "wfdm-document-management-api"
+      }
+    },
+    {
+      "id": "wfdm-document-management-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfdm",
+        "component": "wfdm-document-management-war"
+      }
+    },
+    {
+      "id": "wffin-finance-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wffin",
+        "component": "wffin-finance-war"
+      }
+    },
+    {
+      "id": "wffin-supplier-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wffin",
+        "component": "wffin-supplier-api"
+      }
+    },
+    {
+      "id": "wfhr-chips-sync-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfhr",
+        "component": "wfhr-chips-sync-api"
+      }
+    },
+    {
+      "id": "wfhr-diary-submission-listener-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfhr",
+        "component": "wfhr-diary-submission-listener-api"
+      }
+    },
+    {
+      "id": "wfhr-earnings-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfhr",
+        "component": "wfhr-earnings-api"
+      }
+    },
+    {
+      "id": "wfhr-earnings-submission-listener-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfhr",
+        "component": "wfhr-earnings-submission-listener-api"
+      }
+    },
+    {
+      "id": "wfhr-earnings-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfhr",
+        "component": "wfhr-earnings-war"
+      }
+    },
+    {
+      "id": "wfhr-ediaries-ui-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfhr",
+        "component": "wfhr-ediaries-ui-war"
+      }
+    },
+    {
+      "id": "wfhr-payroll-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfhr",
+        "component": "wfhr-payroll-api"
+      }
+    },
+    {
+      "id": "wfhr-payroll-processing-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfhr",
+        "component": "wfhr-payroll-processing-war"
+      }
+    },
+    {
+      "id": "wfhr-psa-chips-data-stub-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfhr",
+        "component": "wfhr-psa-chips-data-stub-api"
+      }
+    },
+    {
+      "id": "wfhr-wps-payroll-sync-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfhr",
+        "component": "wfhr-wps-payroll-sync-api"
+      }
+    },
+    {
+      "id": "wfim-dispatch-2k5-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfim",
+        "component": "wfim-dispatch-2k5-api"
+      }
+    },
+    {
+      "id": "wfim-dispatch-2k5-stub-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfim",
+        "component": "wfim-dispatch-2k5-stub-war"
+      }
+    },
+    {
+      "id": "wfim-dispatch-2020-incident-sync-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfim",
+        "component": "wfim-dispatch-2020-incident-sync-api"
+      }
+    },
+    {
+      "id": "wfim-dispatch-2020-rof-sync-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfim",
+        "component": "wfim-dispatch-2020-rof-sync-api"
+      }
+    },
+    {
+      "id": "wfim-incident-manager-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfim",
+        "component": "wfim-incident-manager-war"
+      }
+    },
+    {
+      "id": "wfim-incidents-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfim",
+        "component": "wfim-incidents-api"
+      }
+    },
+    {
+      "id": "wfim-no-more-rofs-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfim",
+        "component": "wfim-no-more-rofs-war"
+      }
+    },
+    {
+      "id": "wfim-report-of-fire-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfim",
+        "component": "wfim-report-of-fire-war"
+      }
+    },
+    {
+      "id": "wfim-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfim",
+        "component": "wfim-war"
+      }
+    },
+    {
+      "id": "wfone-portal-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfone",
+        "component": "wfone-portal-api"
+      }
+    },
+    {
+      "id": "wfone-portal-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfone",
+        "component": "wfone-portal-war"
+      }
+    },
+    {
+      "id": "wfone-quartzdesk-agent",
+      "type": "tomcat",
+      "context": {
+        "app": "wfone",
+        "component": "wfone-quartzdesk-agent"
+      }
+    },
+    {
+      "id": "wfone-quartzdesk-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfone",
+        "component": "wfone-quartzdesk-war"
+      }
+    },
+    {
+      "id": "wfone-vendor-portal-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfone",
+        "component": "wfone-vendor-portal-api"
+      }
+    },
+    {
+      "id": "wfone-vendor-portal-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfone",
+        "component": "wfone-vendor-portal-war"
+      }
+    },
+    {
+      "id": "wfone-workflow-admin-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfone",
+        "component": "wfone-workflow-admin-war"
+      }
+    },
+    {
+      "id": "wfone-workflow-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfone",
+        "component": "wfone-workflow-api"
+      }
+    },
+    {
+      "id": "wforg-org-unit-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wforg",
+        "component": "wforg-org-unit-api"
+      }
+    },
+    {
+      "id": "wfrm-contracts-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfrm",
+        "component": "wfrm-contracts-war"
+      }
+    },
+    {
+      "id": "wfrm-employee-sync-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfrm",
+        "component": "wfrm-employee-sync-api"
+      }
+    },
+    {
+      "id": "wfrm-resource-classification-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfrm",
+        "component": "wfrm-resource-classification-api"
+      }
+    },
+    {
+      "id": "wfrm-resources-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfrm",
+        "component": "wfrm-resources-api"
+      }
+    },
+    {
+      "id": "wfrm-resource-schedule-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfrm",
+        "component": "wfrm-resource-schedule-api"
+      }
+    },
+    {
+      "id": "wfrm-resources-v2-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfrm",
+        "component": "wfrm-resources-v2-api"
+      }
+    },
+    {
+      "id": "wfrm-resources-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfrm",
+        "component": "wfrm-resources-war"
+      }
+    },
+    {
+      "id": "wfrm-timereports-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfrm",
+        "component": "wfrm-timereports-api"
+      }
+    },
+    {
+      "id": "wfrm-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfrm",
+        "component": "wfrm-war"
+      }
+    },
+    {
+      "id": "wfss-pointid-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfss",
+        "component": "wfss-pointid-api"
+      }
+    },
+    {
+      "id": "wfss-pointid-api-rest-endpoints",
+      "type": "tomcat",
+      "context": {
+        "app": "wfss",
+        "component": "wfss-pointid-api-rest-endpoints"
+      }
+    },
+    {
+      "id": "wfwm-user-editable-data-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfwm",
+        "component": "wfwm-user-editable-data-api"
+      }
+    },
+    {
+      "id": "wfwm-webmapping-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfwm",
+        "component": "wfwm-webmapping-war"
+      }
+    },
+    {
+      "id": "wfwx-danger-summary-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfwx",
+        "component": "wfwx-danger-summary-war"
+      }
+    },
+    {
+      "id": "wfwx-data-initialization-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfwx",
+        "component": "wfwx-data-initialization-api"
+      }
+    },
+    {
+      "id": "wfwx-datawriter-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfwx",
+        "component": "wfwx-datawriter-war"
+      }
+    },
+    {
+      "id": "wfwx-fireweather-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfwx",
+        "component": "wfwx-fireweather-api"
+      }
+    },
+    {
+      "id": "wfwx-info-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfwx",
+        "component": "wfwx-info-war"
+      }
+    },
+    {
+      "id": "wfwx-legacy-datasync-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfwx",
+        "component": "wfwx-legacy-datasync-war"
+      }
+    },
+    {
+      "id": "wfwx-web-map-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfwx",
+        "component": "wfwx-web-map-war"
+      }
+    },
+    {
+      "id": "wfwx-web-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfwx",
+        "component": "wfwx-web-war"
       }
     }
   ],
