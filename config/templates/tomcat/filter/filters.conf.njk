@@ -43,6 +43,7 @@
 [FILTER]
     Name modify
     Match app.{{typeTag}}.localhost
+    Rename tomcat_time @timestamp
     Add event.kind event
     Add event.category web
     Add event.dataset tomcat.localhost{% if shimDisableMultilineKey %}
@@ -55,6 +56,7 @@
 [FILTER]
     Name modify
     Match app.{{typeTag}}.catalina
+    Rename tomcat_time @timestamp
     Add event.kind event
     Add event.category web
     Add event.dataset tomcat.catalina{% if shimDisableMultilineKey %}
@@ -67,6 +69,7 @@
 [FILTER]
     Name modify
     Match app.{{typeTag}}.generic
+    Rename tomcat_time @timestamp
     Add event.kind event
     Add event.category web
     Add event.dataset application.log
