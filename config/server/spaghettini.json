@@ -1,6 +1,6 @@
 {
   "address": "spaghettini.bcgov",
-  "proxy": "https://test-forwardproxy.nrs.bcgov:23128",
+  "proxy": "http://test-forwardproxy.nrs.bcgov:23128",
   "fluentBitRelease": "1.8.13",
   "apps": [
     {"id": "cpu", "type": "metric_host_cpu", "context": {}},

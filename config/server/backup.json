@@ -1,6 +1,6 @@
 {
   "address": "backup.dmz",
-  "proxy": "https://test-forwardproxy.nrs.bcgov:23128",
+  "proxy": "http://test-forwardproxy.nrs.bcgov:23128",
   "fluentBitRelease": "1.7.4",
   "apps": [
     {
