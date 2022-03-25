@@ -21,8 +21,8 @@
     type          regex
     flush_timeout 1000
     key_content message
-    rule      "start_state"   "/^\d{2}-\w{3}-\d{4}\s\d{2}:\d{2}:\d{2}.\d{3}.*$/"  "cont"
-    rule      "cont"          "/^[ \t+].*|Caused by.*/"    "cont"
+    rule      "start_state"   "{{startTomcatParserRegex|safe}}"  "cont"
+    rule      "cont"          "{{contTomcatParserRegex|safe}}"    "cont"
 
 # App (generic) multiline core parser
 #
@@ -31,5 +31,5 @@
     type          regex
     flush_timeout 1000
     key_content message
-    rule      "start_state"   "/^\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}(.\d{3}?).*$/"  "cont"
-    rule      "cont"          "/^[ \t+a-zA-Z{}].*/"    "cont"
+    rule      "start_state"   "{{startAppParserRegex|safe}}"  "cont"
+    rule      "cont"          "{{contAppParserRegex|safe}}"    "cont"
