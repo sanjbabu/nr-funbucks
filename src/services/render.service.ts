@@ -48,25 +48,46 @@ export class RenderService {
     instant: [],
   };
 
+  private _inputCount = 0;
+  private _filterCount = 0;
+  private _parserCount = 0;
+
+  get inputCount() {
+    return this._inputCount;
+  }
+
+  get filterCount() {
+    return this._filterCount;
+  }
+
+  get parserCount() {
+    return this._parserCount;
+  }
+
+  constructor(private agentBasePath: string = '') {
+
+  }
+
   /**
    * Initializes the output directory and reads base config.
    * @param local If true, the local context override in the base config is used.
    * @returns Promise resolved when initialization is complete
    */
-  public async init(local: boolean): Promise<void[]> {
+  public async init(local: boolean): Promise<void> {
     nunjucks.configure(TEMPLATE_CONFIG_BASEPATH, {
       autoescape: true,
     });
-    return Promise.all([
-      this.clean(),
-      this.readBaseConfig(local)]);
+    if (this.agentBasePath !== '') {
+      fs.mkdirSync(path.resolve(OUTPUT_BASEPATH, this.agentBasePath));
+    }
+    return this.readBaseConfig(local);
   }
 
   /**
    * Cleans output path
    * @returns Promise resolved when everything cleaned
    */
-  public clean(): Promise<void> {
+  public static clean(): Promise<void> {
     fs.rmSync(OUTPUT_BASEPATH, {recursive: true, force: true});
     fs.mkdirSync(OUTPUT_BASEPATH);
     return Promise.resolve();
@@ -102,8 +123,12 @@ export class RenderService {
     };
 
     for (const file of this.baseConfig.files) {
-      this.writeRenderedTemplate(file.tmpl, this.fileToOutputPath(file), context);
+      this.writeRenderedTemplate(file.tmpl, this.fileToOutputPath(file), file.type, context);
     }
+
+    console.log(`Inputs: ${this.inputCount}`);
+    console.log(`Filters: ${this.filterCount}`);
+    console.log(`Parsers: ${this.parserCount}`);
   }
 
   public writeApp(app: ServerAppConfig, serverConfig: ServerConfig, override: string[]) {
@@ -131,9 +156,10 @@ export class RenderService {
     const typeTag = app.id ? app.id : `${app.type}_${this.typeCnt[app.type]}`;
     this.measureTypes[type.measurementType].push(typeTag);
     for (const file of type.files) {
-      const outPath = this.writeRenderedTemplate(
+      const {outPath, outRelativePath} = this.writeRenderedTemplate(
         `${app.type}/${file.tmpl}`,
         `${typeTag}/${this.fileToOutputPath(file)}`,
+        file.type,
         {
           typeTag,
           ...this.baseConfig.context,
@@ -146,7 +172,7 @@ export class RenderService {
       if (file.type === 'script') {
         fs.chmodSync(outPath, 0o775);
       }
-      this.addFileToType(app, file, outPath);
+      this.addFileToType(app, file, outRelativePath);
     }
   }
 
@@ -224,17 +250,34 @@ export class RenderService {
    * @param context The context to render the template using
    * @returns The output path
    */
-  private writeRenderedTemplate(templateName: string, outputPath: string, context: object): string {
-    const outPath = path.resolve(OUTPUT_BASEPATH, outputPath);
+  private writeRenderedTemplate(
+    templateName: string,
+    outputPath: string,
+    fileType: FB_FILE_TYPES,
+    context: object): {outPath: string, outRelativePath: string} {
+    const outPath = path.resolve(OUTPUT_BASEPATH, this.agentBasePath, outputPath);
+    const outRelativePath = path.resolve(OUTPUT_BASEPATH, outputPath);
     fs.mkdirSync(path.dirname(outPath), {recursive: true});
     if (this.isTemplateNjkFile(templateName)) {
       const txt = nunjucks.render(templateName, this.execValueTemplate(context as {[key: string]: string}));
+      this.updateLimitCounts(fileType, txt);
       fs.writeFileSync(outPath, txt);
     } else {
-      const txt = fs.readFileSync(path.resolve(TEMPLATE_CONFIG_BASEPATH, templateName));
+      const txt = fs.readFileSync(path.resolve(TEMPLATE_CONFIG_BASEPATH, templateName), 'utf-8');
+      this.updateLimitCounts(fileType, txt);
       fs.writeFileSync(outPath, txt);
     }
-    return outPath;
+    return {outPath, outRelativePath};
+  }
+
+  private updateLimitCounts(fileType: FB_FILE_TYPES, txt: string) {
+    if (fileType === 'input') {
+      this._inputCount += (txt.match(/\[input\]/ig) || []).length;
+    } else if (fileType === 'filter') {
+      this._filterCount += (txt.match(/\[filter\]/ig) || []).length;
+    } else if (fileType === 'parser') {
+      this._parserCount += (txt.match(/\[(multiline_)?parser\]/ig) || []).length;
+    }
   }
 
   /**
