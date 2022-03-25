@@ -24,7 +24,9 @@ export interface ServerAppConfig {
 }
 
 export interface ServerConfig {
-  address: string;
+  address: string; // Used by pipeline
+  proxy: string; // Used by pipeline
+  fluentBitRelease: string; // Used by pipeline
   apps: ServerAppConfig[];
   context: object;
 }

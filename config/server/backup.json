@@ -1,6 +1,7 @@
 {
   "address": "backup.dmz",
-  "https_proxy": "https://test-forwardproxy.nrs.bcgov:23128",
+  "proxy": "https://test-forwardproxy.nrs.bcgov:23128",
+  "fluentBitRelease": "1.7.4",
   "apps": [
     {
       "id": "wfdlv-rp",
