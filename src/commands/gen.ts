@@ -48,7 +48,7 @@ export default class Gen extends Command {
 
     for (const app of serverConfig.apps) {
       if (serviceArr.length <= agentCount) {
-        serviceArr.push(new RenderService(flags.multiple ? `agent.${agentCount}` : ''));
+        serviceArr.push(new RenderService(flags.multiple ? `fluent-bit.${agentCount}` : ''));
         await serviceArr[agentCount].init(flags.local);
       }
       if (flags.app === undefined || flags.app === app.id) {
