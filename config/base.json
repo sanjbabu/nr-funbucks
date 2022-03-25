@@ -2,8 +2,8 @@
   "context": {
     "appPathJq": "/sw_ux/bin/jq",
     "fluentLogLevel": "error",
-    "fluentLogFile": "/apps_ux/agents/main/logs/agent.log",
-    "inputDbFile": "/apps_ux/agents/main/db/fluent-bit-logs.db",
+    "fluentLogFile": "${FLUENT_HOME}/logs/agent.log",
+    "inputDbFile": "${FLUENT_HOME}/db/fluent-bit-logs.db",
     "inputTailMemBufLimit": "5MB",
     "inputTailIgnoreOlder": "7d",
     "output_kinesis": true,
