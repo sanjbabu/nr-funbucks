@@ -4,7 +4,7 @@
   "fluentBitRelease": "1.8.13",
   "apps": [
     {"id": "jenkins-deploy", "type": "deploy", "context": {}},
-    {"id": "cpu", "type": "metric_host_cpu", "context": {}},
+    {"id": "cpu", "type": "metric_host_cpu", "context": { "inputIntervalSec": 10 }},
     {"id": "disk", "type": "metric_host_disk", "context": {}},
     {"id": "memory", "type": "metric_host_memory", "context": {}},
     {"id": "process", "type": "metric_process", "context": {}}

@@ -1,6 +1,7 @@
 {
   "measurementType": "instant",
   "context": {
+    "inputIntervalSec": 30
   },
   "files": [
     { "tmpl": "filter/filters.conf.njk", "type": "filter"},

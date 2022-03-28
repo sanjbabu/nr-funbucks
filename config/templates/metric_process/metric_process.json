@@ -1,7 +1,8 @@
 {
   "measurementType": "instant",
   "context": {
-    "processName": "fluent-bit"
+    "processName": "fluent-bit",
+    "inputIntervalSec": 60
   },
   "files": [
     { "tmpl": "filter/filters.conf.njk", "type": "filter"},
