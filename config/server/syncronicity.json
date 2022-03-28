@@ -1,6 +1,6 @@
 {
   "address": "syncronicity.bcgov",
-  "proxy": "http://test-forwardproxy.nrs.bcgov:23128",
+  "proxy": "http://forwardproxy.nrs.bcgov:23128",
   "fluentBitRelease": "1.8.13",
   "apps": [
     {"id": "jenkins-deploy", "type": "deploy", "context": {}},
