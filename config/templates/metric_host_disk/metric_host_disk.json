@@ -1,5 +1,6 @@
 {
   "measurementType": "instant",
+  "semver": "<1.9.0",
   "context": {
     "inputIntervalSec": 60
   },

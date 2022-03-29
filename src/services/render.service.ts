@@ -1,6 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import * as nunjucks from 'nunjucks';
+import * as semver from 'semver';
 
 import {CONFIG_BASEPATH, OUTPUT_BASEPATH, TEMPLATE_CONFIG_BASEPATH} from '../constants/paths';
 // eslint-disable-next-line max-len
@@ -135,8 +136,10 @@ export class RenderService {
     const typeConfigPath = path.resolve(TEMPLATE_CONFIG_BASEPATH, app.type, `${app.type}.json`);
     const typeConfigStr = fs.readFileSync(typeConfigPath, 'utf8');
     const type: TypeConfig = JSON.parse(typeConfigStr);
-
-    this.writeType(app, type, serverConfig, override);
+    // Only write out if semver is statisfied. Default is to accept.
+    if (type.semver === undefined || semver.satisfies(serverConfig.fluentBitRelease, type.semver)) {
+      this.writeType(app, type, serverConfig, override);
+    }
   }
 
   /**

@@ -15,6 +15,7 @@ export interface TypeConfig {
   context: object;
   files: FbFile[];
   measurementType: keyof MEASURE_TYPES;
+  semver?: string;
 }
 
 export interface ServerAppConfig {
