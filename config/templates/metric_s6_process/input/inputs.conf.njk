@@ -1,0 +1,6 @@
+[INPUT]
+    Name exec
+    Tag  {{typeTag}}
+    Command  ${FLUENT_CONF_HOME}/{{typeTag}}/scripts/s6_process_metrics.sh
+    Interval_Sec {{inputIntervalSec}}
+    Parser  generic_json

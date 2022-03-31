@@ -1,0 +1,14 @@
+{
+  "measurementType": "instant",
+  "semver": ">=1.9.0",
+  "context": {
+    "mountPath": "/fs/u02",
+    "name": "storage",
+    "inputIntervalSec": 60
+  },
+  "files": [
+    { "tmpl": "filter/filters.conf.njk", "type": "filter"},
+    { "tmpl": "input/inputs.conf.njk", "type": "input"},
+    { "tmpl": "scripts/disk_free.sh.njk", "type": "script"}
+  ]
+}

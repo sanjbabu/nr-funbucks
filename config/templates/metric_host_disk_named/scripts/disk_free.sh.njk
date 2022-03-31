@@ -1,0 +1,16 @@
+#!/bin/bash
+
+df -P | grep {{mountPath}}$ | \
+  {{appPathJq}} -R -s '
+    {
+      host: (if (length > 0) then {
+        disk: gsub(" +"; " ") | gsub("\n"; "") | split(" ") | {
+          mount: .[5] ,
+          total: .[1] | tonumber,
+          available: .[2] | tonumber,
+          used: ((.[1] | tonumber) - (.[2] | tonumber)),
+          used_percentage: (((.[1] | tonumber) - (.[2] | tonumber)) / (.[1] | tonumber))
+        }
+      } else empty end)
+    }' | \
+    {{appPathJq}} -c

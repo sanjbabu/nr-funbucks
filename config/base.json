@@ -21,6 +21,7 @@
   "files": [
     { "tmpl": "filters.conf.njk" },
     { "tmpl": "fluent-bit.conf.njk" },
+    { "tmpl": "generic_json_parsers.conf.njk" },
     { "tmpl": "host_metadata.lua" },
     { "tmpl": "outputs.conf.njk" },
     { "tmpl": "parsers.conf.njk" },

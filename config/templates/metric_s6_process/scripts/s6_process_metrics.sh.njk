@@ -1,0 +1,24 @@
+#!/bin/bash
+
+svStatArray=($(/sw_ux/s6/bin/s6-svstat -o up,pid {{serviceDirectory}}))
+up=${svStatArray[0]}
+pid=${svStatArray[1]}
+procStatArray=($(cat /proc/${pid}/stat))
+topStat=($(top -b -n 2 -d 0.2 -p ${pid}| tail -1 | sed 's/\s\s*/\n/g'))
+
+if [ "true" == $up ]
+  then
+echo "{
+  \"process.status.alive\": ${up},
+  \"process.pid\": ${pid},
+  \"process.name\": \"$(ps -p ${svStatArray[1]} -o comm=)\"
+  \"process.status.cpu_percentage\": ${topStat[8]}
+  \"process.status.memory_percentage\": ${topStat[9]},
+  \"process.status.VmSize\": ${procStatArray[22]},
+  \"process.status.VmRSS\": ${procStatArray[23]}
+}"
+  else
+echo "{
+  \"process.status.alive\": ${up}
+}"
+fi

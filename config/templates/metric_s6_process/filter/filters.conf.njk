@@ -1,0 +1,13 @@
+{% import "../../macros/lua.njk" as lua %}
+{{- lua.renderAppendTimestamp(typeTag) }}
+
+[FILTER]
+    Name modify
+    Match {{typeTag}}
+    Add event.kind metric
+    Add event.category process
+    Add event.dataset process.info
+    Add labels.project {{ app | lower }}
+    Add service.name {{ component | lower }}
+    Add service.environment {{ environment }}
+    Add @metadata.keyAsPath true

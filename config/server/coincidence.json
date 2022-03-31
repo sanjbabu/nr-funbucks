@@ -5,6 +5,7 @@
   "apps": [
     {"id": "cpu", "type": "metric_host_cpu", "context": { "inputIntervalSec": 10 }},
     {"id": "disk", "type": "metric_host_disk", "context": {}},
+    {"id": "disk_named", "type": "metric_host_disk_named", "context": {}},
     {"id": "memory", "type": "metric_host_memory", "context": {}},
     {"id": "process", "type": "metric_process", "context": {}}
   ],

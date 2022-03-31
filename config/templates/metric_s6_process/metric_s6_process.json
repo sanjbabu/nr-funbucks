@@ -1,0 +1,12 @@
+{
+  "measurementType": "instant",
+  "context": {
+    "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}{{ component | lower }}",
+    "inputIntervalSec": 60
+  },
+  "files": [
+    { "tmpl": "filter/filters.conf.njk", "type": "filter"},
+    { "tmpl": "input/inputs.conf.njk", "type": "input"},
+    { "tmpl": "scripts/s6_process_metrics.sh.njk", "type": "script"}
+  ]
+}
