@@ -2,7 +2,7 @@
   "context": {
     "appPathJq": "/sw_ux/bin/jq",
     "fluentLogLevel": "error",
-    "!fluentLogFile": "/apps_ux/logs/agents/fluent-bit/agent.{{agentCount}}.log",
+    "!fluentLogFile": "/apps_ux/logs/agents/fluent-bit/fluent-bit.{{agentCount}}.log",
     "inputDbFile": "/apps_data/agents/fluent-bit/fluent-bit-logs.db",
     "inputTailMemBufLimit": "5MB",
     "inputTailIgnoreOlder": "7d",
