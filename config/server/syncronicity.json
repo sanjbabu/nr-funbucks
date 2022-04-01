@@ -18,5 +18,7 @@
       "component": "jenkins_smt"
     }}
   ],
-  "context": {}
+  "context": {
+    "environment": "production"
+  }
 }
