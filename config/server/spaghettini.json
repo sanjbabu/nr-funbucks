@@ -8,11 +8,523 @@
     {"id": "memory", "type": "metric_host_memory", "context": {}},
     {"id": "process", "type": "metric_process", "context": {}},
     {
+      "id": "APT",
+      "type": "tomcat",
+      "context": {
+        "app": "APT",
+        "component": "apt2"
+      }
+    },
+    {
+      "id": "CBR",
+      "type": "tomcat",
+      "context": {
+        "app": "CBR",
+        "component": "cbr"
+      }
+    },
+    {
+      "id": "CIMS",
+      "type": "tomcat",
+      "context": {
+        "app": "CIMS",
+        "component": "cims"
+      }
+    },
+    {
+      "id": "CLIENT",
+      "type": "tomcat",
+      "context": {
+        "app": "CLIENT",
+        "component": "client"
+      }
+    },
+    {
+      "id": "CMS",
+      "type": "tomcat",
+      "context": {
+        "app": "CMS",
+        "component": "cms-for"
+      }
+    },
+    {
+      "id": "CRSR",
+      "type": "tomcat",
+      "context": {
+        "app": "CRSR",
+        "component": "crsra"
+      }
+    },
+    {
+      "id": "CRSR",
+      "type": "tomcat",
+      "context": {
+        "app": "CRSR",
+        "component": "crsrm"
+      }
+    },
+    {
+      "id": "CSP",
+      "type": "tomcat",
+      "context": {
+        "app": "CSP",
+        "component": "csp"
+      }
+    },
+    {
+      "id": "ECAS",
+      "type": "tomcat",
+      "context": {
+        "app": "ECAS",
+        "component": "ecas"
+      }
+    },
+    {
+      "id": "ECAS",
+      "type": "tomcat",
+      "context": {
+        "app": "ECAS",
+        "component": "ecassvc"
+      }
+    },
+    {
+      "id": "EDQA",
+      "type": "tomcat",
+      "context": {
+        "app": "EDQA",
+        "component": "edqa-war"
+      }
+    },
+    {
+      "id": "ERA",
+      "type": "tomcat",
+      "context": {
+        "app": "ERA",
+        "component": "era"
+      }
+    },
+    {
+      "id": "ESF",
+      "type": "tomcat",
+      "context": {
+        "app": "ESF",
+        "component": "esf"
+      }
+    },
+    {
+      "id": "FNIRS",
+      "type": "tomcat",
+      "context": {
+        "app": "FNIRS",
+        "component": "fnirs"
+      }
+    },
+    {
+      "id": "FREP",
+      "type": "tomcat",
+      "context": {
+        "app": "FREP",
+        "component": "frep"
+      }
+    },
+    {
+      "id": "FSP",
+      "type": "tomcat",
+      "context": {
+        "app": "FSP",
+        "component": "fsp"
+      }
+    },
+    {
+      "id": "FSP",
+      "type": "tomcat",
+      "context": {
+        "app": "FSP",
+        "component": "fspsvc"
+      }
+    },
+    {
+      "id": "FSP",
+      "type": "tomcat",
+      "context": {
+        "app": "FSP",
+        "component": "fspsvc"
+      }
+    },
+    {
+      "id": "FTA",
+      "type": "tomcat",
+      "context": {
+        "app": "FTA",
+        "component": "fta"
+      }
+    },
+    {
+      "id": "FTA",
+      "type": "tomcat",
+      "context": {
+        "app": "FTA",
+        "component": "ftasvc"
+      }
+    },
+    {
+      "id": "FTA",
+      "type": "tomcat",
+      "context": {
+        "app": "FTA",
+        "component": "ftc"
+      }
+    },
+    {
+      "id": "GAS",
+      "type": "tomcat",
+      "context": {
+        "app": "GAS",
+        "component": "gas2"
+      }
+    },
+    {
+      "id": "GYS",
+      "type": "tomcat",
+      "context": {
+        "app": "GYS",
+        "component": "gys"
+      }
+    },
+    {
+      "id": "HRC",
+      "type": "tomcat",
+      "context": {
+        "app": "HRC",
+        "component": "hrc-war-dlvr"
+      }
+    },
+    {
+      "id": "IAPP",
+      "type": "tomcat",
+      "context": {
+        "app": "IAPP",
+        "component": "iapp"
+      }
+    },
+    {
+      "id": "IAPP",
+      "type": "tomcat",
+      "context": {
+        "app": "IAPP",
+        "component": "iappsvc"
+      }
+    },
+    {
+      "id": "IAPP_IMF",
+      "type": "tomcat",
+      "context": {
+        "app": "IAPP_IMF",
+        "component": "iapp_imf"
+      }
+    },
+    {
+      "id": "IAPP_IMF",
+      "type": "tomcat",
+      "context": {
+        "app": "IAPP_IMF",
+        "component": "iapp_imf"
+      }
+    },
+    {
+      "id": "ILCR",
+      "type": "tomcat",
+      "context": {
+        "app": "ILCR",
+        "component": "ilcr"
+      }
+    },
+    {
+      "id": "ILCS",
+      "type": "tomcat",
+      "context": {
+        "app": "ILCS",
+        "component": "ilcs"
+      }
+    },
+    {
       "id": "irs-war",
       "type": "tomcat",
       "context": {
         "app": "irs",
         "component": "irs-war"
+      }
+    },
+    {
+      "id": "ISP",
+      "type": "tomcat",
+      "context": {
+        "app": "ISP",
+        "component": "isp"
+      }
+    },
+    {
+      "id": "LEXIS",
+      "type": "tomcat",
+      "context": {
+        "app": "LEXIS",
+        "component": "lexis"
+      }
+    },
+    {
+      "id": "LEXIS",
+      "type": "tomcat",
+      "context": {
+        "app": "LEXIS",
+        "component": "lexisvc"
+      }
+    },
+    {
+      "id": "LEXIS",
+      "type": "tomcat",
+      "context": {
+        "app": "LEXIS",
+        "component": "lexisws"
+      }
+    },
+    {
+      "id": "LTRACK",
+      "type": "tomcat",
+      "context": {
+        "app": "LTRACK",
+        "component": "ltrack"
+      }
+    },
+    {
+      "id": "MIS",
+      "type": "tomcat",
+      "context": {
+        "app": "MIS",
+        "component": "mis"
+      }
+    },
+    {
+      "id": "MSD",
+      "type": "tomcat",
+      "context": {
+        "app": "MSD",
+        "component": "msd"
+      }
+    },
+    {
+      "id": "MTEC",
+      "type": "tomcat",
+      "context": {
+        "app": "MTEC",
+        "component": "mtec"
+      }
+    },
+    {
+      "id": "NFISBC",
+      "type": "tomcat",
+      "context": {
+        "app": "NFISBC",
+        "component": "nfisbc"
+      }
+    },
+    {
+      "id": "NOTICES",
+      "type": "tomcat",
+      "context": {
+        "app": "NOTICES",
+        "component": "notices"
+      }
+    },
+    {
+      "id": "NRIG",
+      "type": "tomcat",
+      "context": {
+        "app": "NRIG",
+        "component": "nrig"
+      }
+    },
+    {
+      "id": "NSA",
+      "type": "tomcat",
+      "context": {
+        "app": "NSA",
+        "component": "nsa2"
+      }
+    },
+    {
+      "id": "PEFP",
+      "type": "tomcat",
+      "context": {
+        "app": "PEFP",
+        "component": "pefp"
+      }
+    },
+    {
+      "id": "PEFP",
+      "type": "tomcat",
+      "context": {
+        "app": "PEFP",
+        "component": "pefp-war"
+      }
+    },
+    {
+      "id": "REPT",
+      "type": "tomcat",
+      "context": {
+        "app": "REPT",
+        "component": "rept"
+      }
+    },
+    {
+      "id": "RESULTS",
+      "type": "tomcat",
+      "context": {
+        "app": "RESULTS",
+        "component": "results"
+      }
+    },
+    {
+      "id": "RESULTS",
+      "type": "tomcat",
+      "context": {
+        "app": "RESULTS",
+        "component": "resultsvc"
+      }
+    },
+    {
+      "id": "RTM",
+      "type": "tomcat",
+      "context": {
+        "app": "RTM",
+        "component": "rtm"
+      }
+    },
+    {
+      "id": "SCS",
+      "type": "tomcat",
+      "context": {
+        "app": "SCS",
+        "component": "scs"
+      }
+    },
+    {
+      "id": "SOSS",
+      "type": "tomcat",
+      "context": {
+        "app": "SOSS",
+        "component": "soss"
+      }
+    },
+    {
+      "id": "SPAR",
+      "type": "tomcat",
+      "context": {
+        "app": "SPAR",
+        "component": "spar"
+      }
+    },
+    {
+      "id": "SPAR",
+      "type": "tomcat",
+      "context": {
+        "app": "SPAR",
+        "component": "sparsvc"
+      }
+    },
+    {
+      "id": "SWISBCG",
+      "type": "tomcat",
+      "context": {
+        "app": "SWISBCG",
+        "component": "swisbcg-war"
+      }
+    },
+    {
+      "id": "SWISBCG",
+      "type": "tomcat",
+      "context": {
+        "app": "SWISBCG",
+        "component": "swisbcg-war"
+      }
+    },
+    {
+      "id": "TUS",
+      "type": "tomcat",
+      "context": {
+        "app": "TUS",
+        "component": "tus"
+      }
+    },
+    {
+      "id": "TUS",
+      "type": "tomcat",
+      "context": {
+        "app": "TUS",
+        "component": "tusws"
+      }
+    },
+    {
+      "id": "VRIMS",
+      "type": "tomcat",
+      "context": {
+        "app": "VRIMS",
+        "component": "vrims"
+      }
+    },
+    {
+      "id": "WASTE",
+      "type": "tomcat",
+      "context": {
+        "app": "WASTE",
+        "component": "waste-for"
+      }
+    },
+    {
+      "id": "WASTE",
+      "type": "tomcat",
+      "context": {
+        "app": "WASTE",
+        "component": "wastesvc-for"
+      }
+    },
+    {
+      "id": "WASTE",
+      "type": "tomcat",
+      "context": {
+        "app": "WASTE",
+        "component": "wastews"
+      }
+    },
+    {
+      "id": "WEBADE",
+      "type": "tomcat",
+      "context": {
+        "app": "WEBADE",
+        "component": "webade-adam-for"
+      }
+    },
+    {
+      "id": "WEBADE",
+      "type": "tomcat",
+      "context": {
+        "app": "WEBADE",
+        "component": "webade-env-oauth2-api"
+      }
+    },
+    {
+      "id": "WEBADE",
+      "type": "tomcat",
+      "context": {
+        "app": "WEBADE",
+        "component": "webade-env-rest-api"
+      }
+    },
+    {
+      "id": "WIMSI",
+      "type": "tomcat",
+      "context": {
+        "app": "WIMSI",
+        "component": "wimsi"
       }
     }
   ],
