@@ -19,7 +19,6 @@
     }}
   ],
   "context": {
-    "environment": "production",
-    "fluentLogLevel": "debug"
+    "environment": "production"
   }
 }
