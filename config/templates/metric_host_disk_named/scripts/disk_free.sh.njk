@@ -7,7 +7,7 @@ df -P | grep {{mountPath}}$ | \
         disk: gsub(" +"; " ") | gsub("\n"; "") | split(" ") | {
           mount: .[5] ,
           total: .[1] | tonumber,
-          available: .[2] | tonumber,
+          free: .[2] | tonumber,
           used: ((.[1] | tonumber) - (.[2] | tonumber)),
           used_percentage: (((.[1] | tonumber) - (.[2] | tonumber)) / (.[1] | tonumber))
         }
