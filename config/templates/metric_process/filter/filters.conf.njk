@@ -5,8 +5,9 @@
     Name modify
     Match {{typeTag}}
     Add event.kind metric
-    Add event.category host
-    Add event.dataset host.proc
+    Add event.category process
+    Add event.dataset process.info
+    Add event.type info
     Rename pid process.pid
     Rename proc_name process.name
     Rename alive process.status.alive
