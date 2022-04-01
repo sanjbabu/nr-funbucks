@@ -8,7 +8,29 @@ topStat=($(top -b -n 2 -d 0.2 -p ${pid}| tail -1 | sed 's/\s\s*/\n/g'))
 
 if [ "true" == $up ]
   then
-    echo "{\"process.status.alive\": ${up},\"process.pid\": ${pid},\"process.name\": \"$(ps -p ${svStatArray[1]} -o comm=)\",\"process.status.cpu_percentage\": ${topStat[8]},\"process.status.memory_percentage\": ${topStat[9]},\"process.status.VmSize\": ${procStatArray[22]},\"process.status.VmRSS\": ${procStatArray[23]}}"
+    echo "
+    {
+      \"process\": {\
+        \"pid\": ${pid},\
+        \"name\": \"$(ps -p ${svStatArray[1]} -o comm=)\",\
+        \"status\": {\
+          \"alive\": true,\
+          \"cpu_percentage\": ${topStat[8]},\
+          \"memory_percentage\": ${topStat[9]},\
+          \"VmSize\": ${procStatArray[22]},\
+          \"VmRSS\": ${procStatArray[23]}\
+        }\
+      }\
+    }" | \
+    {{appPathJq}} -c
   else
-    echo "{\"process.status.alive\": ${up}}"
+    echo "
+    {
+      \"process\": {\
+        \"status\": {\
+          \"alive\": false\
+        }\
+      }\
+    }" | \
+    {{appPathJq}} -c
 fi
