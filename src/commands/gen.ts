@@ -64,7 +64,7 @@ export default class Gen extends Command {
     }
     // Write base config (should occur last)
     for (const service of serviceArr) {
-      service.writeBase(flags.context);
+      service.writeBase(serverConfig, flags.context);
     }
   }
 }

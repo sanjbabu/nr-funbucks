@@ -112,10 +112,11 @@ export class RenderService {
    * Write base config. This should be done last.
    * @param override Array of override values
    */
-  public writeBase(override: string[]) {
+  public writeBase(serverConfig: ServerConfig, override: string[]) {
     const context = {
       ...this.baseConfig.context,
       ...this.baseContextOverride,
+      ...serverConfig.context,
       ...this.overrideContext(override, undefined),
       ...this.collateFileType('parser'),
       ...this.collateFileType('filter'),
