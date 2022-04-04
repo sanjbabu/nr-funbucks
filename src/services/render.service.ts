@@ -49,6 +49,11 @@ export class RenderService {
     instant: [],
   };
 
+  /**
+   * The set of ids
+   */
+  private idSet = new Set<string>();
+
   private _inputCount = 0;
   private _filterCount = 0;
   private _parserCount = 0;
@@ -158,6 +163,10 @@ export class RenderService {
     const context = {...type.context, ...app.context};
     this.typeCnt[app.type] = this.typeCnt[app.type] ? this.typeCnt[app.type] + 1 : 1;
     const typeTag = app.id ? app.id : `${app.type}_${this.typeCnt[app.type]}`;
+    if (this.idSet.has(typeTag)) {
+      throw new Error('Duplicate id. Please fix configuration.');
+    }
+    this.idSet.add(typeTag);
     this.measureTypes[type.measurementType].push(typeTag);
     for (const file of type.files) {
       const {outPath, outRelativePath} = this.writeRenderedTemplate(
