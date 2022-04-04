@@ -63,8 +63,8 @@ export default class Gen extends Command {
       }
     }
     // Write base config (should occur last)
-    for (const service of serviceArr) {
-      service.writeBase(serverConfig, [`agentCount/${agentCount}`, ...flags.context]);
+    for (const [index, service] of serviceArr.entries()) {
+      service.writeBase(serverConfig, [`agentCount/${index}`, ...flags.context]);
     }
   }
 }
