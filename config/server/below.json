@@ -1,5 +1,5 @@
 {
-  "address": "below.dmz",
+  "address": "below.bcgov",
   "proxy": "http://test-forwardproxy.nrs.bcgov:23128",
   "fluentBitRelease": "1.8.13",
   "apps": [
