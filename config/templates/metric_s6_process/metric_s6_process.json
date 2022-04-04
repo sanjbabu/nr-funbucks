@@ -2,7 +2,7 @@
   "measurementType": "instant",
   "context": {
     "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}{{ component | lower }}",
-    "inputIntervalSec": 60
+    "inputIntervalSec": 30
   },
   "files": [
     { "tmpl": "filter/filters.conf.njk", "type": "filter"},
