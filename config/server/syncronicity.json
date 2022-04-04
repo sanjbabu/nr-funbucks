@@ -11,11 +11,13 @@
     {"id": "process", "type": "metric_process", "context": {}},
     {"id": "metrics_isss", "type": "metric_s6_process", "context": {
       "app": "jenkins",
-      "component": "jenkins_isss"
+      "component": "jenkins_isss",
+      "inputIntervalSec": 20
     }},
     {"id": "metrics_smt", "type": "metric_s6_process", "context": {
       "app": "jenkins",
-      "component": "jenkins_smt"
+      "component": "jenkins_smt",
+      "inputIntervalSec": 20
     }}
   ],
   "context": {

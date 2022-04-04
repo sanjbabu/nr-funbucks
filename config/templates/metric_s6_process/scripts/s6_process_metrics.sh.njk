@@ -4,7 +4,7 @@ svStatArray=($(/sw_ux/s6/bin/s6-svstat -o up,pid {{serviceDirectory}}))
 up=${svStatArray[0]}
 pid=${svStatArray[1]}
 procStatArray=($(cat /proc/${pid}/stat))
-topStat=($(top -b -n 2 -d 0.2 -p ${pid}| tail -1 | sed 's/\s\s*/\n/g'))
+topStat=($(top -b -n 2 -d 1 -p ${pid} | tail -1 | sed 's/\s\s*/\n/g'))
 topStat[8]=$(echo "scale=6; ${topStat[8]} / 100" | bc)
 topStat[9]=$(echo "scale=6; ${topStat[9]} / 100" | bc)
 
@@ -14,7 +14,7 @@ if [ "true" == $up ]
     {
       \"process\": {\
         \"pid\": ${pid},\
-        \"name\": \"$(ps -p ${svStatArray[1]} -o comm=)\",\
+        \"name\": \"${topStat[11]}",\
         \"status\": {\
           \"alive\": true,\
           \"cpu_percentage\": ${topStat[8]},\
