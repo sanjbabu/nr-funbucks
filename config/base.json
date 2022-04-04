@@ -1,13 +1,13 @@
 {
   "context": {
     "appPathJq": "/sw_ux/bin/jq",
-    "fluentLogLevel": "error",
+    "fluentLogLevel": "info",
     "!fluentLogFile": "/apps_ux/logs/agents/fluent-bit/fluent-bit.{{agentCount}}.log",
     "inputDbFile": "/apps_data/agents/fluent-bit/fluent-bit-logs.db",
     "inputTailMemBufLimit": "5MB",
     "inputTailIgnoreOlder": "7d",
     "output_kinesis": true,
-    "output_stdout": true,
+    "output_stdout": false,
     "shimDisableMultilineKey": true
   },
   "localContextOverride": {
@@ -16,6 +16,7 @@
     "localLogsPathPrefix": "/data",
     "inputDbFile": "/tmp/fluent-bit-logs.db",
     "output_kinesis": false,
+    "output_stdout": true,
     "output_local_lambda": true
   },
   "files": [
