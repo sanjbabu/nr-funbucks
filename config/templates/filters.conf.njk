@@ -7,7 +7,6 @@
     Add ecs.version 1.12.0
     Rename level log.level
     Rename event_sequence event.sequence
-    Rename message event.original
 
 {% for typeTag in measureTypes.historic -%}
 {{ lua.renderLua(typeTag, 'timestamp.lua', 'append_event_created') }}
