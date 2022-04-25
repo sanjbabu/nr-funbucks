@@ -1,0 +1,553 @@
+{
+  "address": "anomoly.bcgov",
+  "proxy": "http://test-forwardproxy.nrs.bcgov:23128",
+  "fluentBitRelease": "1.8.15",
+  "apps": [
+    {"id": "cpu", "type": "metric_host_cpu", "context": {}},
+    {"id": "disk", "type": "metric_host_disk", "context": {}},
+    {"id": "memory", "type": "metric_host_memory", "context": {}},
+    {
+      "id": "aqua-permit-api",
+      "type": "tomcat",
+      "context": {
+        "app": "AQUA",
+        "component": "aqua-permit-api"
+      }
+    },
+    {
+      "id": "arts-client-war",
+      "type": "tomcat",
+      "context": {
+        "app": "ARTS",
+        "component": "arts-client-war"
+      }
+    },
+    {
+      "id": "arts-arts-api",
+      "type": "tomcat",
+      "context": {
+        "app": "ARTS",
+        "component": "arts-arts-api"
+      }
+    },
+    {
+      "id": "as-as-api",
+      "type": "tomcat",
+      "context": {
+        "app": "AS",
+        "component": "as-as-api"
+      }
+    },
+    {
+      "id": "as-mocklob-api",
+      "type": "tomcat",
+      "context": {
+        "app": "AS",
+        "component": "as-mocklob-api"
+      }
+    },
+    {
+      "id": "as-mocklob-war",
+      "type": "tomcat",
+      "context": {
+        "app": "AS",
+        "component": "as-mocklob-war"
+      }
+    },
+    {
+      "id": "ats-api",
+      "type": "tomcat",
+      "context": {
+        "app": "ATS",
+        "component": "ats-api"
+      }
+    },
+    {
+      "id": "ccsc-client-v2-api",
+      "type": "tomcat",
+      "context": {
+        "app": "CCSC",
+        "component": "ccsc-client-v2-api"
+      }
+    },
+    {
+      "id": "ccsc-api",
+      "type": "tomcat",
+      "context": {
+        "app": "CCSC",
+        "component": "ccsc-api"
+      }
+    },
+    {
+      "id": "ccfsc-api",
+      "type": "tomcat",
+      "context": {
+        "app": "CFSC",
+        "component": "cfsc-api"
+      }
+    },
+    {
+      "id": "cfsweb-war",
+      "type": "tomcat",
+      "context": {
+        "app": "CFSWEB",
+        "component": "cfsweb-war"
+      }
+    },
+    {
+      "id": "cirras-claims-api",
+      "type": "tomcat",
+      "context": {
+        "app": "CIRRAS",
+        "component": "cirras-claims-api"
+      }
+    },
+    {
+      "id": "cirras-claims-listener-api",
+      "type": "tomcat",
+      "context": {
+        "app": "CIRRAS",
+        "component": "cirras-claims-listener-api"
+      }
+    },
+    {
+      "id": "cirras-claims-war",
+      "type": "tomcat",
+      "context": {
+        "app": "CIRRAS",
+        "component": "cirras-claims-war"
+      }
+    },
+    {
+      "id": "cirras-policies-api",
+      "type": "tomcat",
+      "context": {
+        "app": "CIRRAS",
+        "component": "cirras-policies-api"
+      }
+    },
+    {
+      "id": "cwm-cwms-api",
+      "type": "tomcat",
+      "context": {
+        "app": "CWM",
+        "component": "cwm-cwms-api"
+      }
+    },
+    {
+      "id": "cwm-mis-api",
+      "type": "tomcat",
+      "context": {
+        "app": "CWM",
+        "component": "cwm-mis-api"
+      }
+    },
+    {
+      "id": "cwm-sos-api",
+      "type": "tomcat",
+      "context": {
+        "app": "CWM",
+        "component": "cwm-sos-api"
+      }
+    },
+    {
+      "id": "dms-document-api",
+      "type": "tomcat",
+      "context": {
+        "app": "DMS",
+        "component": "dms-document-api"
+      }
+    },
+    {
+      "id": "dms-document-api-bak",
+      "type": "tomcat",
+      "context": {
+        "app": "DMS",
+        "component": "dms-document-api-bak"
+      }
+    },
+    {
+      "id": "edqa-war",
+      "type": "tomcat",
+      "context": {
+        "app": "EDQA",
+        "component": "edqa-war"
+      }
+    },
+    {
+      "id": "eyor-api",
+      "type": "tomcat",
+      "context": {
+        "app": "EYOR",
+        "component": "eyor-api"
+      }
+    },
+    {
+      "id": "eyor-portlet",
+      "type": "tomcat",
+      "context": {
+        "app": "EYOR",
+        "component": "eyor-portlet"
+      }
+    },
+    {
+      "id": "ffs-server-war",
+      "type": "tomcat",
+      "context": {
+        "app": "FFS",
+        "component": "ffs-server-war"
+      }
+    },
+    {
+      "id": "fhd-client-war",
+      "type": "tomcat",
+      "context": {
+        "app": "FHD",
+        "component": "fhd-client-war"
+      }
+    },
+    {
+      "id": "fncs-asu-war",
+      "type": "tomcat",
+      "context": {
+        "app": "FNCS",
+        "component": "fncs-asu-war"
+      }
+    },
+    {
+      "id": "fncs-ats-client-lib",
+      "type": "tomcat",
+      "context": {
+        "app": "FNCS",
+        "component": "fncs-ats-client-lib"
+      }
+    },
+    {
+      "id": "fncs-client-war",
+      "type": "tomcat",
+      "context": {
+        "app": "FNCS",
+        "component": "fncs-client-war"
+      }
+    },
+    {
+      "id": "fncs-fncs-api",
+      "type": "tomcat",
+      "context": {
+        "app": "FNCS",
+        "component": "fncs-fncs-api"
+      }
+    },
+    {
+      "id": "fncs-fta-client-lib",
+      "type": "tomcat",
+      "context": {
+        "app": "FNCS",
+        "component": "fncs-fta-client-lib"
+      }
+    },
+    {
+      "id": "fncs-tantalis-client-lib",
+      "type": "tomcat",
+      "context": {
+        "app": "FNCS",
+        "component": "fncs-tantalis-client-lib"
+      }
+    },
+    {
+      "id": "fnp-client-v2-war",
+      "type": "tomcat",
+      "context": {
+        "app": "FNP",
+        "component": "fnp-client-v2-war"
+      }
+    },
+    {
+      "id": "fnp-client-war",
+      "type": "tomcat",
+      "context": {
+        "app": "FNP",
+        "component": "fnp-client-war"
+      }
+    },
+    {
+      "id": "fnp-fnps-api",
+      "type": "tomcat",
+      "context": {
+        "app": "FNP",
+        "component": "fnp-fnps-api"
+      }
+    },
+    {
+      "id": "fta-tenures-api",
+      "type": "tomcat",
+      "context": {
+        "app": "FTA",
+        "component": "fta-tenures-api"
+      }
+    },
+    {
+      "id": "hrc-war-dlvr",
+      "type": "tomcat",
+      "context": {
+        "app": "HRC",
+        "component": "hrc-war-dlvr"
+      }
+    },
+    {
+      "id": "ilrr-reporter-war",
+      "type": "tomcat",
+      "context": {
+        "app": "ILRR",
+        "component": "ilrr-reporter-war"
+      }
+    },
+    {
+      "id": "ilrr-restws-war",
+      "type": "tomcat",
+      "context": {
+        "app": "ILRR",
+        "component": "ilrr-restws-war"
+      }
+    },
+    {
+      "id": "ilrr-ui-war",
+      "type": "tomcat",
+      "context": {
+        "app": "ILRR",
+        "component": "ilrr-ui-war"
+      }
+    },
+    {
+      "id": "ismc-samples-api",
+      "type": "tomcat",
+      "context": {
+        "app": "ISMC",
+        "component": "ismc-samples-api"
+      }
+    },
+    {
+      "id": "ismc-samples-war",
+      "type": "tomcat",
+      "context": {
+        "app": "ISMC",
+        "component": "ismc-samples-war "
+      }
+    },
+    {
+      "id": "mascotw-war",
+      "type": "tomcat",
+      "context": {
+        "app": "MASCOTW",
+        "component": "mascotw-war"
+      }
+    },
+    {
+      "id": "mms-permit-api",
+      "type": "tomcat",
+      "context": {
+        "app": "MMS",
+        "component": "mms-permit-api"
+      }
+    },
+    {
+      "id": "mwsl-commonmines-api",
+      "type": "tomcat",
+      "context": {
+        "app": "MWSL",
+        "component": "mwsl-commonmines-api"
+      }
+    },
+    {
+      "id": "mwsl-documents-api",
+      "type": "tomcat",
+      "context": {
+        "app": "MWSL",
+        "component": "mwsl-documents-api"
+      }
+    },
+    {
+      "id": "mwsl-reports-api",
+      "type": "tomcat",
+      "context": {
+        "app": "MWSL",
+        "component": "mwsl-reports-api"
+      }
+    },
+    {
+      "id": "nrisws-api",
+      "type": "tomcat",
+      "context": {
+        "app": "NRISWS",
+        "component": "nrisws-api"
+      }
+    },
+    {
+      "id": "nrssf-orbeon-api",
+      "type": "tomcat",
+      "context": {
+        "app": "NRSSF",
+        "component": "nrssf-orbeon-api"
+      }
+    },
+    {
+      "id": "nrssf-smartforms-api",
+      "type": "tomcat",
+      "context": {
+        "app": "NRSSF",
+        "component": "nrssf-smartforms-api"
+      }
+    },
+    {
+      "id": "raad3-client-war",
+      "type": "tomcat",
+      "context": {
+        "app": "RAAD3",
+        "component": "raad3-client-war"
+      }
+    },
+    {
+      "id": "rar-api",
+      "type": "tomcat",
+      "context": {
+        "app": "RAR",
+        "component": "rar-api"
+      }
+    },
+    {
+      "id": "rar-client-war",
+      "type": "tomcat",
+      "context": {
+        "app": "RAR",
+        "component": "rar-client-war"
+      }
+    },
+    {
+      "id": "rrs-api",
+      "type": "tomcat",
+      "context": {
+        "app": "RRS",
+        "component": "rrs-api" 
+      }
+    },
+    {
+      "id": "rrs-listener-war",
+      "type": "tomcat",
+      "context": {
+        "app": "RRS",
+        "component": "rrs-listener-war"
+      }
+    },
+    {
+      "id": "rrs-web-war",
+      "type": "tomcat",
+      "context": {
+        "app": "RRS",
+        "component": "rrs-web-war",
+        "!logs_path_localhost_access_log": "/apps_ux/logs/RRS/rrs-web/localhost_access_log.*.log",
+        "!logs_path_localhost": "/apps_ux/logs/RRS/rrs-web/localhost.*.log",
+        "!logs_path_catalina": "/apps_ux/logs/RRS/rrs-web/catalina.*.log",
+        "!logs_path_app": "/apps_ux/logs/RRS/rrs-web/rrs-web-war.log" 
+      }
+    },
+    {
+      "id": "sncsc-api",
+      "type": "tomcat",
+      "context": {
+        "app": "SNCSC",
+        "component": "sncsc-api"
+      }
+    },
+    {
+      "id": "sncsc-staff-war",
+      "type": "tomcat",
+      "context": {
+        "app": "SNCSC",
+        "component": "sncsc-staff-war"
+      }
+    },
+    {
+      "id": "sncsc-web",
+      "type": "tomcat",
+      "context": {
+        "app": "SNCSC",
+        "component": "sncsc-web"
+      }
+    },
+    {
+      "id": "sos-cwm-sos-api",
+      "type": "tomcat",
+      "context": {
+        "app": "SOS",
+        "component": "cwm-sos-api"
+      }
+    },
+    {
+      "id": "stes-estimator-api",
+      "type": "tomcat",
+      "context": {
+        "app": "STES",
+        "component": "stes-estimator-api"
+      }
+    },
+    {
+      "id": "stes-stumpage-rates-api",
+      "type": "tomcat",
+      "context": {
+        "app": "STES",
+        "component": "stes-stumpage-rates-api"
+      }
+    },
+    {
+      "id": "suitt-api",
+      "type": "tomcat",
+      "context": {
+        "app": "SUITT",
+        "component": "suitt-api"
+      }
+    },
+    {
+      "id": "swisbcg-war",
+      "type": "tomcat",
+      "context": {
+        "app": "SWISBCG",
+        "component": "swisbcg-war"
+      }
+    },
+    {
+      "id": "titan-api",
+      "type": "tomcat",
+      "context": {
+        "app": "TITAN",
+        "component": "titan-api"
+      }
+    },
+    {
+      "id": "titan-war",
+      "type": "tomcat",
+      "context": {
+        "app": "TITAN",
+        "component": "titan-war"
+      }
+    },
+    {
+      "id": "ttls-api",
+      "type": "tomcat",
+      "context": {
+        "app": "TTLS",
+        "component": "ttls-api"
+      }
+    },
+    {
+      "id": "webade-adam",
+      "type": "tomcat",
+      "context": {
+        "app": "WEBADE",
+        "component": "webade-adam"
+      }
+    }
+  ],
+  "context": {
+    "environment": "integration"
+  }
+}
