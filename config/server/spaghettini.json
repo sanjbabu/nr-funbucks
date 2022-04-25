@@ -1,7 +1,7 @@
 {
   "address": "spaghettini.bcgov",
   "proxy": "http://test-forwardproxy.nrs.bcgov:23128",
-  "fluentBitRelease": "1.8.13",
+  "fluentBitRelease": "1.8.15",
   "apps": [
     {"id": "cpu", "type": "metric_host_cpu", "context": {}},
     {"id": "disk", "type": "metric_host_disk", "context": {}},
@@ -27,7 +27,8 @@
       "type": "tomcat",
       "context": {
         "app": "CIMS",
-        "component": "cims"
+        "component": "cims",
+        "!logs_path_app": "/apps_ux/logs/CIMS/cims/APP-CIMS.log"
       }
     },
     {
@@ -43,7 +44,8 @@
       "type": "tomcat",
       "context": {
         "app": "CMS",
-        "component": "cms-for"
+        "component": "cms-for",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-CMS-FOR.log"
       }
     },
     {
@@ -51,7 +53,8 @@
       "type": "tomcat",
       "context": {
         "app": "CRSR",
-        "component": "crsra"
+        "component": "crsra",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-CRSRA.log"
       }
     },
     {
@@ -59,7 +62,8 @@
       "type": "tomcat",
       "context": {
         "app": "CRSR",
-        "component": "crsrm"
+        "component": "crsrm",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-CRSRM.log"
       }
     },
     {
@@ -67,7 +71,8 @@
       "type": "tomcat",
       "context": {
         "app": "CSP",
-        "component": "csp"
+        "component": "csp",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-CSP.log"
       }
     },
     {
@@ -75,7 +80,8 @@
       "type": "tomcat",
       "context": {
         "app": "ECAS",
-        "component": "ecas"
+        "component": "ecas",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-ECAS.log"
       }
     },
     {
@@ -83,7 +89,8 @@
       "type": "tomcat",
       "context": {
         "app": "ECAS",
-        "component": "ecassvc"
+        "component": "ecassvc",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-ECASSVC.log"
       }
     },
     {
@@ -99,7 +106,8 @@
       "type": "tomcat",
       "context": {
         "app": "ERA",
-        "component": "era"
+        "component": "era",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-ERA.log"
       }
     },
     {
@@ -295,14 +303,6 @@
       }
     },
     {
-      "id": "mtec",
-      "type": "tomcat",
-      "context": {
-        "app": "MTEC",
-        "component": "mtec"
-      }
-    },
-    {
       "id": "nfisbc",
       "type": "tomcat",
       "context": {
@@ -332,22 +332,6 @@
       "context": {
         "app": "NSA",
         "component": "nsa2"
-      }
-    },
-    {
-      "id": "pefp",
-      "type": "tomcat",
-      "context": {
-        "app": "PEFP",
-        "component": "pefp"
-      }
-    },
-    {
-      "id": "pefp-war",
-      "type": "tomcat",
-      "context": {
-        "app": "PEFP",
-        "component": "pefp-war"
       }
     },
     {
@@ -475,7 +459,9 @@
       "type": "tomcat",
       "context": {
         "app": "WEBADE",
-        "component": "webade-adam-for"
+        "component": "webade-adam-for",
+        "!logs_path_app": "/apps_ux/logs/WEBADE/webade-adam-for/webade-adam.log",
+        "contAppParserRegex": "/^[ \\t+a-zA-Z{}\\/\\[\\]&<:\\r\\n][\\s\\S]*$/"
       }
     },
     {
