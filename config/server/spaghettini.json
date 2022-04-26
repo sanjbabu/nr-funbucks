@@ -82,7 +82,7 @@
         "app": "ECAS",
         "component": "ecas",
         "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-ECAS.log",
-        "contAppParserRegex": "/^[ \\t+a-zA-Z{}\\/\\[\\])&<:\\r\\n][\\s\\S]*$/"
+        "contAppParserRegex": "/^[ \\t+a-zA-Z{}\\/\\[\\])&<:\\r\\n,-][\\s\\S]*$/"
       }
     },
     {
