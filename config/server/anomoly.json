@@ -143,14 +143,6 @@
       }
     },
     {
-      "id": "cwm-sos-api",
-      "type": "tomcat",
-      "context": {
-        "app": "CWM",
-        "component": "cwm-sos-api"
-      }
-    },
-    {
       "id": "dms-document-api",
       "type": "tomcat",
       "context": {
@@ -475,7 +467,7 @@
       }
     },
     {
-      "id": "sos-cwm-sos-api",
+      "id": "cwm-sos-api",
       "type": "tomcat",
       "context": {
         "app": "SOS",
