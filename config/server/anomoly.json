@@ -323,7 +323,7 @@
       "type": "tomcat",
       "context": {
         "app": "ISMC",
-        "component": "ismc-samples-war "
+        "component": "ismc-samples-war"
       }
     },
     {
