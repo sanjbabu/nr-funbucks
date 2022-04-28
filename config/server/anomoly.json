@@ -351,22 +351,6 @@
       }
     },
     {
-      "id": "mwsl-documents-api",
-      "type": "tomcat",
-      "context": {
-        "app": "MWSL",
-        "component": "mwsl-documents-api"
-      }
-    },
-    {
-      "id": "mwsl-reports-api",
-      "type": "tomcat",
-      "context": {
-        "app": "MWSL",
-        "component": "mwsl-reports-api"
-      }
-    },
-    {
       "id": "nrisws-api",
       "type": "tomcat",
       "context": {
