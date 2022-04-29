@@ -429,11 +429,11 @@
       }
     },
     {
-      "id": "wfrm-war",
+      "id": "wfrm-war-wfdlv",
       "type": "tomcat",
       "context": {
         "app": "wfrm",
-        "component": "wfrm-war",
+        "component": "wfrm-war-wfdlv",
         "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/wfrm-war.log"
       }
     },
