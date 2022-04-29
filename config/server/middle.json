@@ -63,6 +63,38 @@
       }
     },
     {
+      "id": "webade-access-invitation-api",
+      "type": "tomcat",
+      "context": {
+        "app": "webade",
+        "component": "webade-access-invitation-api"
+      }
+    },
+    {
+      "id": "webade-adam",
+      "type": "tomcat",
+      "context": {
+        "app": "webade",
+        "component": "webade-adam"
+      }
+    },
+    {
+      "id": "webade-oauth2-api",
+      "type": "tomcat",
+      "context": {
+        "app": "webade",
+        "component": "webade-oauth2-api"
+      }
+    },
+    {
+      "id": "webade-rest-api",
+      "type": "tomcat",
+      "context": {
+        "app": "webade",
+        "component": "webade-rest-api"
+      }
+    },
+    {
       "id": "wfcst-war",
       "type": "tomcat",
       "context": {
@@ -120,14 +152,6 @@
       }
     },
     {
-      "id": "wfhr-earnings-api",
-      "type": "tomcat",
-      "context": {
-        "app": "wfhr",
-        "component": "wfhr-earnings-api"
-      }
-    },
-    {
       "id": "wfhr-earnings-submission-listener-api",
       "type": "tomcat",
       "context": {
@@ -160,14 +184,6 @@
       }
     },
     {
-      "id": "wfhr-payroll-processing-war",
-      "type": "tomcat",
-      "context": {
-        "app": "wfhr",
-        "component": "wfhr-payroll-processing-war"
-      }
-    },
-    {
       "id": "wfhr-psa-chips-data-stub-api",
       "type": "tomcat",
       "context": {
@@ -181,22 +197,6 @@
       "context": {
         "app": "wfhr",
         "component": "wfhr-wps-payroll-sync-api"
-      }
-    },
-    {
-      "id": "wfim-dispatch-2k5-api",
-      "type": "tomcat",
-      "context": {
-        "app": "wfim",
-        "component": "wfim-dispatch-2k5-api"
-      }
-    },
-    {
-      "id": "wfim-dispatch-2k5-stub-war",
-      "type": "tomcat",
-      "context": {
-        "app": "wfim",
-        "component": "wfim-dispatch-2k5-stub-war"
       }
     },
     {
@@ -405,14 +405,6 @@
       "context": {
         "app": "wfss",
         "component": "wfss-pointid-api"
-      }
-    },
-    {
-      "id": "wfss-pointid-api-rest-endpoints",
-      "type": "tomcat",
-      "context": {
-        "app": "wfss",
-        "component": "wfss-pointid-api-rest-endpoints"
       }
     },
     {
