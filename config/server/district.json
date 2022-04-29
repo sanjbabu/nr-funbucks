@@ -1,6 +1,6 @@
 {
   "address": "district.bcgov",
-  "proxy": "http://forwardproxy.nrs.bcgov:23128",
+  "proxy": "http://test-forwardproxy.nrs.bcgov:23128",
   "fluentBitRelease": "1.8.15",
   "apps": [
     {"id": "cpu", "type": "metric_host_cpu", "context": { "inputIntervalSec": 10 }},
