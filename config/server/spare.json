@@ -1,5 +1,7 @@
 {
   "address": "spare.dmz",
+  "proxy": "http://test-forwardproxy.nrs.bcgov:23128",
+  "logsProxyDisabled": "true",
   "fluentBitRelease": "1.8.15",
   "apps": [
     {"id": "cpu", "type": "metric_host_cpu", "context": {}},
