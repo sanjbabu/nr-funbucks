@@ -1,0 +1,157 @@
+{
+  "address": "crest.bcgov",
+  "proxy": "http://forwardproxy.nrs.bcgov:23128",
+  "fluentBitRelease": "1.8.15",
+  "apps": [
+    {"id": "cpu", "type": "metric_host_cpu", "context": {}},
+    {"id": "disk", "type": "metric_host_disk", "context": {}},
+    {"id": "memory", "type": "metric_host_memory", "context": {}},
+    {
+      "id": "dispatch-api-war",
+      "type": "tomcat",
+      "context": {
+        "app": "dispatch",
+        "component": "dispatch-api-war"
+      }
+    },
+    {
+      "id": "dispatch-client-war",
+      "type": "tomcat",
+      "context": {
+        "app": "dispatch",
+        "component": "dispatch-client-war"
+      }
+    },
+    {
+      "id": "dispatch-middleware-war",
+      "type": "tomcat",
+      "context": {
+        "app": "dispatch",
+        "component": "dispatch-middleware-war"
+      }
+    },
+    {
+      "id": "dispatch-webapps-war",
+      "type": "tomcat",
+      "context": {
+        "app": "dispatch",
+        "component": "dispatch-webapps-war"
+      }
+    },
+    {
+      "id": "dispatch-wfim-incident-sync-api",
+      "type": "tomcat",
+      "context": {
+        "app": "dispatch",
+        "component": "dispatch-wfim-incident-sync-api"
+      }
+    },
+    {
+      "id": "dispatch-wfim-rof-sync-api",
+      "type": "tomcat",
+      "context": {
+        "app": "dispatch",
+        "component": "dispatch-wfim-rof-sync-api"
+      }
+    },
+    {
+      "id": "wfim-dispatch-2020-incident-sync-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfim",
+        "component": "wfim-dispatch-2020-incident-sync-api"
+      }
+    },
+    {
+      "id": "wfim-dispatch-2020-rof-sync-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfim",
+        "component": "wfim-dispatch-2020-rof-sync-api"
+      }
+    },
+    {
+      "id": "wfim-incident-manager-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfim",
+        "component": "wfim-incident-manager-war"
+      }
+    },
+    {
+      "id": "wfim-incidents-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfim",
+        "component": "wfim-incidents-api"
+      }
+    },
+    {
+      "id": "wfim-no-more-rofs-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfim",
+        "component": "wfim-no-more-rofs-war"
+      }
+    },
+    {
+      "id": "wfim-report-of-fire-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfim",
+        "component": "wfim-report-of-fire-war"
+      }
+    },
+    {
+      "id": "wfim-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfim",
+        "component": "wfim-war"
+      }
+    },
+    {
+      "id": "wfwx-danger-summary-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfwx",
+        "component": "wfwx-danger-summary-war"
+      }
+    },
+    {
+      "id": "wfwx-fireweather-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfwx",
+        "component": "wfwx-fireweather-api"
+      }
+    },
+    {
+      "id": "wfwx-info-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfwx",
+        "component": "wfwx-info-war"
+      }
+    },
+    {
+      "id": "wfwx-web-map-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfwx",
+        "component": "wfwx-web-map-war"
+      }
+    },
+    {
+      "id": "wfwx-web-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfwx",
+        "component": "wfwx-web-war"
+      }
+    }
+  ],
+  "context": {
+    "environment": "wfprd"
+  }
+}
