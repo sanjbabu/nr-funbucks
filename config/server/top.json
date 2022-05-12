@@ -1,0 +1,36 @@
+{
+  "address": "backup.dmz",
+  "proxy": "http://test-forwardproxy.nrs.bcgov:23128",
+  "logsProxyDisabled": "true",
+  "fluentBitRelease": "1.8.15",
+  "apps": [
+    {"id": "cpu", "type": "metric_host_cpu", "context": {}},
+    {"id": "disk", "type": "metric_host_disk", "context": {}},
+    {"id": "memory", "type": "metric_host_memory", "context": {}},
+    {
+      "id": "wfdlv-rp",
+      "type": "apache_reverse_proxy",
+      "context": {
+        "environment": "wfdlv",
+        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/wfdlv{% else %}/sw_ux/httpd01/logs/hot{% endif %}/*-access*.log"
+      }
+    },
+    {
+      "id": "wfint-rp",
+      "type": "apache_reverse_proxy",
+      "context": {
+        "environment": "wfint",
+        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/wfint{% else %}/sw_ux/httpd02/logs/hot{% endif %}/*-access*.log"
+      }
+    },
+    {
+      "id": "wftst-rp",
+      "type": "apache_reverse_proxy",
+      "context": {
+        "environment": "wftst",
+        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/wftst{% else %}/sw_ux/httpd03/logs/hot{% endif %}/*-access*.log"
+      }
+    }
+  ],
+  "context": {}
+}
