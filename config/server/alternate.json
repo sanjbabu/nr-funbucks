@@ -1,0 +1,20 @@
+{
+  "address": "alternate.dmz",
+  "proxy": "http://forwardproxy.nrs.bcgov:23128",
+  "logsProxyDisabled": "true",
+  "fluentBitRelease": "1.8.15",
+  "apps": [
+    {"id": "cpu", "type": "metric_host_cpu", "context": {}},
+    {"id": "disk", "type": "metric_host_disk", "context": {}},
+    {"id": "memory", "type": "metric_host_memory", "context": {}},
+    {
+      "id": "wfprd-rp",
+      "type": "apache_reverse_proxy",
+      "context": {
+        "environment": "wfprd",
+        "logs_path": "/sw_ux/httpd01/logs/hot/*-access*.log"
+      }
+    }
+  ],
+  "context": {}
+}
