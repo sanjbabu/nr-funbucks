@@ -10,7 +10,7 @@
     "startTomcatParserRegex": "/^\\d{2}-\\w{3}-\\d{4}.\\d{2}:\\d{2}:\\d{2}.\\d{3}.*$/",
     "contTomcatParserRegex": "/^[ \\t+a-zA-Z].*|Caused by.*/",
     "startAppParserRegex": "/^\\d{4}-\\d{2}-\\d{2}.\\d{2}:\\d{2}:\\d{2}(?:.\\d{3}?).*$/",
-    "contAppParserRegex": "/^[ \\t+a-zA-Z{}\\/\\[\\]].*/"
+    "contAppParserRegex": "/^[ \\t+a-zA-Z{}#\\/\\[\\]].*/"
   },
   "files": [
     { "tmpl": "filter/filters.conf.njk", "type": "filter"},
