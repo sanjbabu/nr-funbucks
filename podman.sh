@@ -22,19 +22,22 @@ echo "sshPort  = $sshPort"
 echo "sshIdent = $sshIdent"
 
 podman machine ssh rm -r /tmp/workspace
-podman machine ssh mkdir -p /tmp/workspace
+podman machine ssh mkdir -p /tmp/workspace/config
+podman machine ssh mkdir -p /tmp/workspace/data
 
-scp -q -r -i $sshIdent -P $sshPort -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $PWD/output/* $sshHost:/tmp/workspace/
+scp -q -r -i $sshIdent -P $sshPort -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $PWD/output/* $sshHost:/tmp/workspace/config
+scp -q -r -i $sshIdent -P $sshPort -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no /Users/mbystedt/Downloads/lcl/nr-elasticsearch-stack/event-stream-processing/samples/below/* $sshHost:/tmp/workspace/data
 
 # Run in foreground, passing vars
 #
 podman run --rm \
-	-v "/tmp/workspace:/config" \
+	-v "/tmp/workspace/config:/config" \
+	-v "/tmp/workspace/data:/data" \
 	-e FLUENT_VERSION=1.8.13 \
 	-e FLUENT_LABEL_ENV=undefined \
   -e FLUENT_CONF_HOME=/config \
 	-e HOST_* \
 	--network=host \
 	--security-opt label=disable \
-	fluent/fluent-bit /fluent-bit/bin/fluent-bit -c /config/fluent-bit.conf
+	fluent/fluent-bit:1.8.15-debug /fluent-bit/bin/fluent-bit -c /config/fluent-bit.conf
 
