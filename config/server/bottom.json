@@ -292,7 +292,8 @@
       "context": {
         "app": "wfone",
         "component": "wfone-quartzdesk-war",
-        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/quartzdesk-web*.log"
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/quartzdesk-web*.log",
+        "startAppParserRegex": "/^\\[*\\d{4}-\\d{2}-\\d{2}.\\d{2}:\\d{2}:\\d{2}.(?:.\\d{3}?).*$/"
       }
     },
     {
