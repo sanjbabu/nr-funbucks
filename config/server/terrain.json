@@ -1,5 +1,5 @@
 {
-  "address": "terrain",
+  "address": "terrain.bcgov",
   "proxy": "http://forwardproxy.nrs.bcgov:23128",
   "fluentBitRelease": "1.8.15",
   "apps": [
