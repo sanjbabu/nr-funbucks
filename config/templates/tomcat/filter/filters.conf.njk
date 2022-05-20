@@ -82,7 +82,43 @@
 #
 [FILTER]
     Name modify
-    Match app.{{typeTag}}*
+    Match app.{{typeTag}}.access
+    Add labels.project {{ app | lower }}
+    Add service.name {{ component | lower }}
+    Add service.environment {{ environment }}
+    Add @metadata.keyAsPath true
+    Rename message event.original
+    Rename message_parsed message
+
+# Application fields
+#
+[FILTER]
+    Name modify
+    Match app.{{typeTag}}.localhost
+    Add labels.project {{ app | lower }}
+    Add service.name {{ component | lower }}
+    Add service.environment {{ environment }}
+    Add @metadata.keyAsPath true
+    Rename message event.original
+    Rename message_parsed message
+
+# Application fields
+#
+[FILTER]
+    Name modify
+    Match app.{{typeTag}}.catalina
+    Add labels.project {{ app | lower }}
+    Add service.name {{ component | lower }}
+    Add service.environment {{ environment }}
+    Add @metadata.keyAsPath true
+    Rename message event.original
+    Rename message_parsed message
+
+# Application fields
+#
+[FILTER]
+    Name modify
+    Match app.{{typeTag}}.generic
     Add labels.project {{ app | lower }}
     Add service.name {{ component | lower }}
     Add service.environment {{ environment }}
