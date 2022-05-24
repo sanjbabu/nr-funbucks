@@ -5,7 +5,15 @@
   "apps": [
     {"id": "cpu", "type": "metric_host_cpu", "context": { "inputIntervalSec": 10 }},
     {"id": "disk", "type": "metric_host_disk", "context": {}},
-    {"id": "memory", "type": "metric_host_memory", "context": {}}
+    {"id": "memory", "type": "metric_host_memory", "context": {}},
+    {
+      "id": "wftst-rp",
+      "type": "apache_reverse_proxy",
+      "context": {
+        "environment": "wftst",
+        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/wftst{% else %}/sw_ux/httpd01/logs/hot{% endif %}/district-httpd01-t1*-access*.log"
+      }
+    }
   ],
   "context": {}
 }
