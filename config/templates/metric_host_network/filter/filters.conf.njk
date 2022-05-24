@@ -1,0 +1,17 @@
+{% import "../../macros/lua.njk" as lua %}
+{{- lua.renderAppendTimestamp(typeTag) }}
+
+[FILTER]
+    Name modify
+    Match {{typeTag}}
+    Add event.kind metric
+    Add event.category host
+    Add event.dataset host.network
+    Add host.network.interface {{inputInterface}}
+    Rename {{inputInterface}}.rx.bytes host.network.ingress.bytes
+    Rename {{inputInterface}}.rx.packets host.network.ingress.packets
+    Rename {{inputInterface}}.rx.errors host.network.ingress.errors
+    Rename {{inputInterface}}.tx.bytes host.network.egress.bytes
+    Rename {{inputInterface}}.tx.packets host.network.egress.packets
+    Rename {{inputInterface}}.tx.errors host.network.egress.errors
+    Add @metadata.keyAsPath true
