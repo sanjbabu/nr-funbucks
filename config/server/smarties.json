@@ -1,0 +1,60 @@
+{
+  "address": "smarties.dmz",
+  "proxy": "http://test-forwardproxy.nrs.bcgov:23128",
+  "logsProxyDisabled": "true",
+  "fluentBitRelease": "1.8.15",
+  "apps": [
+    {"id": "cpu", "type": "metric_host_cpu", "context": {}},
+    {"id": "disk", "type": "metric_host_disk", "context": {}},
+    {"id": "memory", "type": "metric_host_memory", "context": {}},
+    {
+      "id": "nrdlv-rp",
+      "type": "apache_reverse_proxy",
+      "context": {
+        "environment": "delivery",
+        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/nrdlv{% else %}/sw_ux/httpd01/logs/hot{% endif %}/*-access*.log"
+      }
+    },
+    {
+      "id": "nrint-rp",
+      "type": "apache_reverse_proxy",
+      "context": {
+        "environment": "integration",
+        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/nrint{% else %}/sw_ux/httpd02/logs/hot{% endif %}/*-access*.log"
+      }
+    },
+    {
+      "id": "nrtst-rp",
+      "type": "apache_reverse_proxy",
+      "context": {
+        "environment": "test",
+        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/nrtst{% else %}/sw_ux/httpd03/logs/hot{% endif %}/*-access*.log"
+      }
+    },
+    {
+      "id": "nrstg1-rp",
+      "type": "apache_reverse_proxy",
+      "context": {
+        "environment": "staging1",
+        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/nrstg1{% else %}/sw_ux/httpd04/logs/hot{% endif %}/*-access*.log"
+      }
+    },
+    {
+      "id": "nrstg2-rp",
+      "type": "apache_reverse_proxy",
+      "context": {
+        "environment": "staging2",
+        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/nrstg1{% else %}/sw_ux/httpd05/logs/hot{% endif %}/*-access*.log"
+      }
+    },
+    {
+      "id": "nrund-rp",
+      "type": "apache_reverse_proxy",
+      "context": {
+        "environment": "undefined",
+        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/nrund{% else %}/sw_ux/httpd06/logs/hot{% endif %}/*-access*.log"
+      }
+    }
+  ],
+  "context": {}
+}
