@@ -82,7 +82,7 @@
 #
 [FILTER]
     Name modify
-    Match app.{{typeTag}}*
+    Match app.{{typeTag}}.*
     Add labels.project {{ app | lower }}
     Add service.name {{ component | lower }}
     Add service.environment {{ environment }}

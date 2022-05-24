@@ -161,7 +161,7 @@
       "context": {
         "app": "wfhr",
         "component": "wfhr-payroll-api",
-        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/wfhr-payroll-api-gc.log"
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/wfhr-payroll-api.log"
       }
     },
     {
@@ -293,7 +293,9 @@
         "app": "wfone",
         "component": "wfone-quartzdesk-war",
         "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/quartzdesk-web*.log",
-        "startAppParserRegex": "/^\\[*\\d{4}-\\d{2}-\\d{2}.\\d{2}:\\d{2}:\\d{2}.(?:.\\d{3}?).*$/"
+        "startAppParserRegex": "/^\\[\\d{4}-\\d{2}-\\d{2}.\\d{2}:\\d{2}:\\d{2}.(?:.\\d{3}?).*$/",
+        "contAppParserRegex": "/^[ \\t+a-zA-Z{}#;>\\*\\/].*/",
+        "appParserFilterRegex": "(?m)^\\[(?<tomcat_time>\\d{4}-\\d{2}-\\d{2}.\\d{2}:\\d{2}:\\d{2}(.\\d{3})?)\\](\\s+)(?<level>\\S+)(\\s+)(?<message_parsed>.*)"
       }
     },
     {
