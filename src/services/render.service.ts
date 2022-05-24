@@ -162,7 +162,8 @@ export class RenderService {
     override: string[]) {
     const context = {...type.context, ...app.context};
     this.typeCnt[app.type] = this.typeCnt[app.type] ? this.typeCnt[app.type] + 1 : 1;
-    const typeTag = app.id ? app.id : `${app.type}_${this.typeCnt[app.type]}`;
+    const paddedTypeCnt = `${this.typeCnt[app.type]}`.padStart(4, '0');
+    const typeTag = app.id ? app.id : `${app.type}_${paddedTypeCnt}`;
     if (this.idSet.has(typeTag)) {
       throw new Error('Duplicate id. Please fix configuration.');
     }
