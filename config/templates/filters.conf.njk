@@ -32,12 +32,3 @@
     Wildcard     log_*
     Nested_under     log
     Remove_prefix     log_
-
-# required for fingerprinting
-[FILTER]
-    Name nest
-    Match *
-    Operation nest
-    Wildcard event.*
-    Nest_under event
-    Remove_prefix event.
