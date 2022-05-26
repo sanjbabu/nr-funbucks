@@ -63,38 +63,6 @@
       }
     },
     {
-      "id": "webade-access-invitation-api",
-      "type": "tomcat",
-      "context": {
-        "app": "webade",
-        "component": "webade-access-invitation-api"
-      }
-    },
-    {
-      "id": "webade-adam",
-      "type": "tomcat",
-      "context": {
-        "app": "webade",
-        "component": "webade-adam"
-      }
-    },
-    {
-      "id": "webade-oauth2-api",
-      "type": "tomcat",
-      "context": {
-        "app": "webade",
-        "component": "webade-oauth2-api"
-      }
-    },
-    {
-      "id": "webade-rest-api",
-      "type": "tomcat",
-      "context": {
-        "app": "webade",
-        "component": "webade-rest-api"
-      }
-    },
-    {
       "id": "wfcst-war",
       "type": "tomcat",
       "context": {
