@@ -456,32 +456,6 @@
       }
     },
     {
-      "id": "webade-adam-for",
-      "type": "tomcat",
-      "context": {
-        "app": "WEBADE",
-        "component": "webade-adam-for",
-        "!logs_path_app": "/apps_ux/logs/WEBADE/webade-adam-for/webade-adam.log",
-        "contAppParserRegex": "/^[ \\t+a-zA-Z{}\\/\\[\\]&<:\\r\\n][\\s\\S]*$/"
-      }
-    },
-    {
-      "id": "webade-env-oauth2-api",
-      "type": "tomcat",
-      "context": {
-        "app": "WEBADE",
-        "component": "webade-env-oauth2-api"
-      }
-    },
-    {
-      "id": "webade-env-rest-api",
-      "type": "tomcat",
-      "context": {
-        "app": "WEBADE",
-        "component": "webade-env-rest-api"
-      }
-    },
-    {
       "id": "wimsi",
       "type": "tomcat",
       "context": {

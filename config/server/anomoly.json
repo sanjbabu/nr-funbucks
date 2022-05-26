@@ -529,14 +529,6 @@
         "app": "TTLS",
         "component": "ttls-api"
       }
-    },
-    {
-      "id": "webade-adam",
-      "type": "tomcat",
-      "context": {
-        "app": "WEBADE",
-        "component": "webade-adam"
-      }
     }
   ],
   "context": {
