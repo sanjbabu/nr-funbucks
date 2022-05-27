@@ -1,7 +1,7 @@
 {
   "measurementType": "instant",
   "context": {
-    "inputInterface": "eth0",
+    "inputInterface": "${METRIC_HOST_NETWORK_INTERFACE_NAME}",
     "inputIntervalSec": 30
   },
   "files": [

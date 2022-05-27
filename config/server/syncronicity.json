@@ -9,8 +9,7 @@
     {"id": "disk_named", "type": "metric_host_disk_named", "context": {}},
     {"id": "memory", "type": "metric_host_memory", "context": {}},
     {"id": "network", "type": "metric_host_network", "context": {
-      "inputIntervalSec": "10",
-      "inputInterface" :"ens192"
+      "inputIntervalSec": "10"
     }},
     {"id": "process", "type": "metric_process", "context": {}},
     {"id": "metrics_isss", "type": "metric_s6_process", "context": {
