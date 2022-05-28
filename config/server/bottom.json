@@ -47,14 +47,6 @@
       }
     },
     {
-      "id": "dispatch-wfim-rof-sync-api",
-      "type": "tomcat",
-      "context": {
-        "app": "dispatch",
-        "component": "dispatch-wfim-rof-sync-api"
-      }
-    },
-    {
       "id": "rrt-war-wfdlv",
       "type": "tomcat",
       "context": {
