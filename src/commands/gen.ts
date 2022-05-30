@@ -50,6 +50,17 @@ export default class Gen extends Command {
       if (serviceArr.length <= agentCount) {
         serviceArr.push(new RenderService(flags.multiple ? `fluent-bit.${agentCount}` : ''));
         await serviceArr[agentCount].init(flags.local);
+        if (!flags.local && !serverConfig.disableFluentBitMetrics) {
+          // Add fluent bit metrics for every agent
+          serviceArr[agentCount].writeApp({
+            id: `metrics_fluentbit_process`,
+            type: 'metric_s6_process',
+            context: {
+              'app': 'fluentbit',
+              'component': `fluent-bit.${agentCount}`,
+            },
+          }, serverConfig, flags.context);
+        }
       }
       if (flags.app === undefined || flags.app === app.id) {
         // Write app config
