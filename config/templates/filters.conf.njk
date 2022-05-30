@@ -2,8 +2,9 @@
 [FILTER]
     Name modify
     Match *
-    Add agent.type fluentbit
+    Add agent.type fluentbit{% if not output_local_lambda %}
     Add agent.version ${FLUENT_VERSION}
+    Add agent.name ${AGENT_NAME}{% endif %}
     Add ecs.version 1.12.0
     Rename level log.level
     Rename event_sequence event.sequence
