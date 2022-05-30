@@ -30,6 +30,7 @@ export interface ServerConfig {
   fluentBitRelease: string; // Used by pipeline
   apps: ServerAppConfig[];
   context: object;
+  disableFluentBitMetrics: boolean;
 }
 
 export interface BaseConfig {
