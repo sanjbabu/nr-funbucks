@@ -6,8 +6,8 @@
     Add agent.version ${FLUENT_VERSION}
     Add agent.name ${AGENT_NAME}{% endif %}
     Add ecs.version 1.12.0
-    Rename level log.level
     Rename event_sequence event.sequence
+    Rename log_file_path log.file.path
 
 {% for typeTag in measureTypes.historic -%}
 {{ lua.renderLua(typeTag, 'timestamp.lua', 'append_event_created') }}
@@ -17,19 +17,3 @@
 # So, we have to use Lua script for now
 # Reference: https://github.com/fluent/fluent-bit/issues/1225
 {{ lua.renderLua('*', 'host_metadata.lua', 'add_host_metadata') }}
-
-[FILTER]
-    Name     nest
-    Match     *
-    Operation     nest
-    Wildcard     log_file_*
-    Nested_under     log_file
-    Remove_prefix     log_file_
-
-[FILTER]
-    Name     nest
-    Match     *
-    Operation     nest
-    Wildcard     log_*
-    Nested_under     log
-    Remove_prefix     log_
