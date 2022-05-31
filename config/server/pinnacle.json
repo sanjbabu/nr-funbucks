@@ -76,7 +76,7 @@
       "context": {
         "app": "wfdm",
         "component": "wfdm-document-management-api",
-        "contAppParserRegex": "/^[ \\t+a-zA-Z{}\\/\\[\\]].*|^\\d{8}.*|^[a-zA-Z0-9]+\\\"|^\\d\\..*/"
+        "contAppParserRegex": "/^[ \\ta-zA-Z{}\\/\\[\\]].*|^\\d{8}.*|^[a-zA-Z0-9]+\\W$/"
       }
     },
     {
