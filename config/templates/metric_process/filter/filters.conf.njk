@@ -9,7 +9,8 @@
     Add event.dataset process.info
     Add event.type info
     Add labels.project {{ app | lower }}
-    Add service.name {{ component | lower }}
+    Add service.name {{ component | lower }}{% if environment %}
+    Add service.environment {{ environment }}{% endif %}
     Rename pid process.pid
     Rename proc_name process.name
     Rename alive process.status.alive

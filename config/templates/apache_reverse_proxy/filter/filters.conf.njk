@@ -3,7 +3,7 @@
     Match {{typeTag}}
     Add event.kind event
     Add event.category web
-    Add event.dataset apache.access
-    Add service.environment {{environment}}
+    Add event.dataset apache.access{% if environment %}
+    Add service.environment {{ environment }}{% endif %}
     Add @metadata.keyAsPath true
     Rename message event.original

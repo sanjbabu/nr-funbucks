@@ -9,6 +9,6 @@
     Add event.dataset process.info
     Add event.type info
     Add labels.project {{ app | lower }}
-    Add service.name {{ component | lower }}
-    Add service.environment {{ environment }}
+    Add service.name {{ component | lower }}{% if environment %}
+    Add service.environment {{ environment }}{% endif %}
     Add @metadata.keyAsPath true
