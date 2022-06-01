@@ -111,14 +111,6 @@
         }
       },
       {
-        "id": "cwm-cwms-api",
-        "type": "tomcat",
-        "context": {
-          "app": "CWM",
-          "component": "cwm-cwms-api"
-        }
-      },
-      {
         "id": "cwm-mis-api",
         "type": "tomcat",
         "context": {
