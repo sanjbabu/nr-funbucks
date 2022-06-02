@@ -465,38 +465,6 @@
           "app": "TTLS",
           "component": "ttls-api"
         }
-      },
-      {
-        "id": "webade-adam",
-        "type": "tomcat",
-        "context": {
-          "app": "WEBADE",
-          "component": "webade-adam"
-        }
-      },
-      {
-        "id": "webade-management-ear",
-        "type": "tomcat",
-        "context": {
-          "app": "WEBADE",
-          "component": "webade-management-ear"
-        }
-      },
-      {
-        "id": "webade-oauth2-api",
-        "type": "tomcat",
-        "context": {
-          "app": "WEBADE",
-          "component": "webade-oauth2-api"
-        }
-      },
-      {
-        "id": "webade-rest-api",
-        "type": "tomcat",
-        "context": {
-          "app": "WEBADE",
-          "component": "webade-rest-api"
-        }
       }
     ],
     "context": {
