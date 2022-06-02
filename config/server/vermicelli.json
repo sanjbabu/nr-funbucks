@@ -7,236 +7,228 @@
     {"id": "disk", "type": "metric_host_disk", "context": {}},
     {"id": "memory", "type": "metric_host_memory", "context": {}},
     {
-      "id": "apt2",
+      "id": "acat",
       "type": "tomcat",
       "context": {
-        "app": "APT",
-        "component": "apt2"
+        "app": "acat",
+        "component": "acat",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-ACAT.log"
       }
     },
     {
-      "id": "cbr",
+      "id": "aqhi",
       "type": "tomcat",
       "context": {
-        "app": "CBR",
-        "component": "cbr"
+        "app": "aqhi",
+        "component": "aqhi",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-AQHI.log"
       }
     },
     {
-      "id": "cims",
+      "id": "ata",
       "type": "tomcat",
       "context": {
-        "app": "CIMS",
-        "component": "cims",
-        "!logs_path_app": "/apps_ux/logs/CIMS/cims/APP-CIMS.log"
+        "app": "ata",
+        "component": "ata",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-ATA.log"
       }
     },
     {
-      "id": "client",
+      "id": "atlas",
       "type": "tomcat",
       "context": {
-        "app": "CLIENT",
-        "component": "client"
+        "app": "atlas",
+        "component": "aqhi",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-ATLAS.log"
       }
     },
     {
-      "id": "cms-for",
+      "id": "ats",
       "type": "tomcat",
       "context": {
-        "app": "CMS",
-        "component": "cms-for",
-        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-CMS-FOR.log"
+        "app": "ats",
+        "component": "ats",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-ATS.log"
       }
     },
     {
-      "id": "crsra",
+      "id": "barts",
       "type": "tomcat",
       "context": {
-        "app": "CRSR",
-        "component": "crsra",
-        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-CRSRA.log"
+        "app": "barts",
+        "component": "barts",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-BARTS.log"
       }
     },
     {
-      "id": "crsrm",
+      "id": "ccsd",
       "type": "tomcat",
       "context": {
-        "app": "CRSR",
-        "component": "crsrm",
-        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-CRSRM.log"
+        "app": "ccsd",
+        "component": "ccsd",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-CCSD.log"
       }
     },
     {
-      "id": "csp",
+      "id": "clir",
       "type": "tomcat",
       "context": {
-        "app": "CSP",
-        "component": "csp",
-        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-CSP.log"
+        "app": "clir",
+        "component": "clir",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-CLIR.log"
       }
     },
     {
-      "id": "ecas",
+      "id": "cors",
       "type": "tomcat",
       "context": {
-        "app": "ECAS",
-        "component": "ecas",
-        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-ECAS.log",
-        "contAppParserRegex": "/^[ \\t+a-zA-Z{}\\/\\[\\])&<:,-].*/"
+        "app": "cors",
+        "component": "cors",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-CORS.log"
       }
     },
     {
-      "id": "ecassvc",
+      "id": "crispws",
       "type": "tomcat",
       "context": {
-        "app": "ECAS",
-        "component": "ecassvc",
-        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-ECASSVC.log"
+        "app": "crispws",
+        "component": "crispws",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-CRISPWS.log"
       }
     },
     {
-      "id": "edqa-war",
+      "id": "cvis",
       "type": "tomcat",
       "context": {
-        "app": "EDQA",
-        "component": "edqa-war"
+        "app": "cvis",
+        "component": "cvis",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-CVIS.log"
       }
     },
     {
-      "id": "era",
+      "id": "eirs",
       "type": "tomcat",
       "context": {
-        "app": "ERA",
-        "component": "era",
-        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-ERA.log"
+        "app": "eirs",
+        "component": "eirs",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-EIRS.log"
       }
     },
     {
-      "id": "esf",
+      "id": "elds",
       "type": "tomcat",
       "context": {
-        "app": "ESF",
-        "component": "esf"
+        "app": "elds",
+        "component": "elds",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-ELDS.log"
       }
     },
     {
-      "id": "fnirs",
+      "id": "emsedt",
       "type": "tomcat",
       "context": {
-        "app": "FNIRS",
-        "component": "fnirs"
+        "app": "emsedt",
+        "component": "emsedt",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-EMSEDT.log"
       }
     },
     {
-      "id": "frep",
+      "id": "emswr",
       "type": "tomcat",
       "context": {
-        "app": "FREP",
-        "component": "frep"
+        "app": "emswr",
+        "component": "emswr",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-EMSWR.log"
       }
     },
     {
-      "id": "fsp",
+      "id": "eswp",
       "type": "tomcat",
       "context": {
-        "app": "FSP",
-        "component": "fsp"
+        "app": "eswp",
+        "component": "eswp",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-ESWP.log"
       }
     },
     {
-      "id": "fspsvc",
+      "id": "farm",
       "type": "tomcat",
       "context": {
-        "app": "FSP",
-        "component": "fspsvc"
+        "app": "farm",
+        "component": "farm",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-FARM.log"
       }
     },
     {
-      "id": "fta",
+      "id": "fdma",
       "type": "tomcat",
       "context": {
-        "app": "FTA",
-        "component": "fta"
+        "app": "fdma",
+        "component": "fdma",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-FDMA.log"
       }
     },
     {
-      "id": "ftasvc",
+      "id": "fidq",
       "type": "tomcat",
       "context": {
-        "app": "FTA",
-        "component": "ftasvc"
+        "app": "fidq",
+        "component": "fidq",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-FIDQ.log"
       }
     },
     {
-      "id": "ftc",
+      "id": "fpct",
       "type": "tomcat",
       "context": {
-        "app": "FTA",
-        "component": "ftc"
+        "app": "fpct",
+        "component": "fpct",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-FPCT.log"
       }
     },
     {
-      "id": "gas2",
+      "id": "fspgen",
       "type": "tomcat",
       "context": {
-        "app": "GAS",
-        "component": "gas2"
+        "app": "fspgen",
+        "component": "fspgen",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-FSPGEN.log"
       }
     },
     {
-      "id": "gys",
+      "id": "ftls",
       "type": "tomcat",
       "context": {
-        "app": "GYS",
-        "component": "gys"
+        "app": "ftls",
+        "component": "ftls",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-FTLS.log"
       }
     },
     {
-      "id": "hrc-war-dlvr",
+      "id": "gator",
       "type": "tomcat",
       "context": {
-        "app": "HRC",
-        "component": "hrc-war-dlvr"
+        "app": "gator",
+        "component": "gator",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-GATOR.log"
       }
     },
     {
-      "id": "iapp",
+      "id": "gbms",
       "type": "tomcat",
       "context": {
-        "app": "IAPP",
-        "component": "iapp"
+        "app": "gbms",
+        "component": "gbms",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-GBMS.log"
       }
     },
     {
-      "id": "iappsvc",
+      "id": "hrpwsv",
       "type": "tomcat",
       "context": {
-        "app": "IAPP",
-        "component": "iappsvc"
-      }
-    },
-    {
-      "id": "iapp_imf",
-      "type": "tomcat",
-      "context": {
-        "app": "IAPP_IMF",
-        "component": "iapp_imf"
-      }
-    },
-    {
-      "id": "ilcr",
-      "type": "tomcat",
-      "context": {
-        "app": "ILCR",
-        "component": "ilcr"
-      }
-    },
-    {
-      "id": "ilcs",
-      "type": "tomcat",
-      "context": {
-        "app": "ILCS",
-        "component": "ilcs"
+        "app": "hrpwsv",
+        "component": "hrpwsv",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-HRPWSV.log"
       }
     },
     {
@@ -244,223 +236,143 @@
       "type": "tomcat",
       "context": {
         "app": "irs",
-        "component": "irs-war"
+        "component": "irs-war",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/irs-war.log"
       }
     },
     {
-      "id": "isp",
+      "id": "mapvunix",
       "type": "tomcat",
       "context": {
-        "app": "ISP",
-        "component": "isp"
+        "app": "mapvunix",
+        "component": "mapvunix",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-MAPVUNIX.log"
       }
     },
     {
-      "id": "lexis",
+      "id": "mascotw",
       "type": "tomcat",
       "context": {
-        "app": "LEXIS",
-        "component": "lexis"
+        "app": "mascotw",
+        "component": "mascotw",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-MASCOTW.log"
       }
     },
     {
-      "id": "lexisvc",
+      "id": "ngps",
       "type": "tomcat",
       "context": {
-        "app": "LEXIS",
-        "component": "lexisvc"
+        "app": "ngps",
+        "component": "ngps",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-NGPS.log"
       }
     },
     {
-      "id": "lexisws",
+      "id": "oats",
       "type": "tomcat",
       "context": {
-        "app": "LEXIS",
-        "component": "lexisws"
+        "app": "oats",
+        "component": "oats",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-OATS.log"
       }
     },
     {
-      "id": "ltrack",
+      "id": "oatsp",
       "type": "tomcat",
       "context": {
-        "app": "LTRACK",
-        "component": "ltrack"
+        "app": "oats",
+        "component": "oatsp",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-OATSP.log"
       }
     },
     {
-      "id": "mis",
+      "id": "par",
       "type": "tomcat",
       "context": {
-        "app": "MIS",
-        "component": "mis"
+        "app": "par",
+        "component": "par",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-PAR.log"
       }
     },
     {
-      "id": "msd",
+      "id": "parws",
       "type": "tomcat",
       "context": {
-        "app": "MSD",
-        "component": "msd"
+        "app": "par",
+        "component": "parws",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-PARWS.log"
       }
     },
     {
-      "id": "nfisbc",
+      "id": "pscis",
       "type": "tomcat",
       "context": {
-        "app": "NFISBC",
-        "component": "nfisbc"
+        "app": "pscis",
+        "component": "pscis",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-PSCIS.log"
       }
     },
     {
-      "id": "notices",
+      "id": "pscismap",
       "type": "tomcat",
       "context": {
-        "app": "NOTICES",
-        "component": "notices"
+        "app": "pscis",
+        "component": "pscismap",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-PSCISMAP.log"
       }
     },
     {
-      "id": "nrig",
+      "id": "pscis-ui",
       "type": "tomcat",
       "context": {
-        "app": "NRIG",
-        "component": "nrig"
+        "app": "pscis",
+        "component": "pscis-ui",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-PSCIS-UI.log"
       }
     },
     {
-      "id": "nsa2",
+      "id": "rec",
       "type": "tomcat",
       "context": {
-        "app": "NSA",
-        "component": "nsa2"
+        "app": "rec",
+        "component": "rec",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-REC.log"
       }
     },
     {
-      "id": "rept",
+      "id": "sea",
       "type": "tomcat",
       "context": {
-        "app": "REPT",
-        "component": "rept"
+        "app": "sea",
+        "component": "sea",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-SEA.log"
       }
     },
     {
-      "id": "results",
+      "id": "seedmap",
       "type": "tomcat",
       "context": {
-        "app": "RESULTS",
-        "component": "results"
+        "app": "seedmap",
+        "component": "seedmap",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-SEEDMAP.log"
       }
     },
     {
-      "id": "resultsvc",
+      "id": "ttlsws",
       "type": "tomcat",
       "context": {
-        "app": "RESULTS",
-        "component": "resultsvc"
-      }
-    },
-    {
-      "id": "rtm",
-      "type": "tomcat",
-      "context": {
-        "app": "RTM",
-        "component": "rtm"
-      }
-    },
-    {
-      "id": "scs",
-      "type": "tomcat",
-      "context": {
-        "app": "SCS",
-        "component": "scs"
-      }
-    },
-    {
-      "id": "soss",
-      "type": "tomcat",
-      "context": {
-        "app": "SOSS",
-        "component": "soss"
-      }
-    },
-    {
-      "id": "spar",
-      "type": "tomcat",
-      "context": {
-        "app": "SPAR",
-        "component": "spar"
-      }
-    },
-    {
-      "id": "sparsvc",
-      "type": "tomcat",
-      "context": {
-        "app": "SPAR",
-        "component": "sparsvc"
-      }
-    },
-    {
-      "id": "swisbcg-war",
-      "type": "tomcat",
-      "context": {
-        "app": "SWISBCG",
-        "component": "swisbcg-war"
-      }
-    },
-    {
-      "id": "tus",
-      "type": "tomcat",
-      "context": {
-        "app": "TUS",
-        "component": "tus"
-      }
-    },
-    {
-      "id": "tusws",
-      "type": "tomcat",
-      "context": {
-        "app": "TUS",
-        "component": "tusws"
-      }
-    },
-    {
-      "id": "vrims",
-      "type": "tomcat",
-      "context": {
-        "app": "VRIMS",
-        "component": "vrims"
-      }
-    },
-    {
-      "id": "waste-for",
-      "type": "tomcat",
-      "context": {
-        "app": "WASTE",
-        "component": "waste-for"
-      }
-    },
-    {
-      "id": "wastesvc-for",
-      "type": "tomcat",
-      "context": {
-        "app": "WASTE",
-        "component": "wastesvc-for"
-      }
-    },
-    {
-      "id": "wastews",
-      "type": "tomcat",
-      "context": {
-        "app": "WASTE",
-        "component": "wastews"
+        "app": "ttlsws",
+        "component": "ttlsws",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-TTLSWS.log"
       }
     },
     {
       "id": "wimsi",
       "type": "tomcat",
       "context": {
-        "app": "WIMSI",
-        "component": "wimsi"
+        "app": "wimsi",
+        "component": "wimsi",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-WIMSI.log"
       }
     }
   ],
