@@ -47,15 +47,6 @@
       }
     },
     {
-      "id": "rrt-war-wfdlv",
-      "type": "tomcat",
-      "context": {
-        "app": "rrt",
-        "component": "rrt-war-wfdlv",
-        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/rrt-war.log"
-      }
-    },
-    {
       "id": "wfcst-war-wfdlv",
       "type": "tomcat",
       "context": {
