@@ -132,7 +132,8 @@
         "type": "tomcat",
         "context": {
           "app": "CWMS",
-          "component": "cwm-cwms-api"
+          "component": "cwm-cwms-api",
+          "contTomcatParserRegex": "/^[ \\ta-zA-Z\\D\\r].*|^\\d+\\s+[<>]+.*/"
         }
       },
       {
