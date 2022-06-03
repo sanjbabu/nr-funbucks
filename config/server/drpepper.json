@@ -75,7 +75,8 @@
         "type": "tomcat",
         "context": {
           "app": "CFSWEB",
-          "component": "cfsweb-war"
+          "component": "cfsweb-war",
+          "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/cfsweb*.log"
         }
       },
       {
