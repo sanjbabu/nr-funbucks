@@ -76,7 +76,8 @@
         "context": {
           "app": "CFSWEB",
           "component": "cfsweb-war",
-          "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/cfsweb*.log"
+          "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/cfsweb*.log",
+          "appParserFilterRegex": "(?m)^(?<tomcat_time>\\d{4}-\\d{2}-\\d{2}.\\d{2}:\\d{2}:\\d{2}(.\\d{3})?):(\\s+)(?<level>\\w+)[\\s:]*(?<message_parsed>.*)"
         }
       },
       {
@@ -124,7 +125,8 @@
         "type": "tomcat",
         "context": {
           "app": "CWMS",
-          "component": "cwm-cwms-api"
+          "component": "cwm-cwms-api",
+          "contTomcatParserRegex": "/^[ \\ta-zA-Z\\D\\r].*|^\\d+\\s+[<>]+.*/"
         }
       },
       {
